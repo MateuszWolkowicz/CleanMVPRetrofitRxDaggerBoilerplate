@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //android
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintlayoutVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    //others
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+    implementation "com.j256.ormlite:ormlite-android:$rootProject.ext.ormliteVersion"
+    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.RxJava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.RxJava2AndroidVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.RxJava2Retrofit2Adapter"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.SquareUpRetrofit2Adapter"
+    compileOnly "org.projectlombok:lombok:$rootProject.ext.Lombok"
+    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.Lombok"
+    implementation "org.modelmapper:modelmapper:$rootProject.ext.ModelMapper"
+
+    //graphic/animation/etc.
+    implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.SpinKitVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+    testImplementation "org.powermock:powermock-module-junit4:$rootProject.ext.powerMockito"
+    testImplementation "org.powermock:powermock-api-mockito:$rootProject.ext.powerMockito"
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.ext.rulesVersion"
+
+    // Espresso UI Testing dependencies.
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.ext.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion"
+
+    // Dagger in androidTest
+    androidTestAnnotationProcessor  "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    // Mockito in androidTest
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
+
+}

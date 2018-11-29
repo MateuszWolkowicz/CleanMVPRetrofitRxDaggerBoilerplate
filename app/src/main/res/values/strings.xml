@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CleanMVPRetrofitRxDaggerBoilerplate</string>
+    <!--Login Screen-->
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+
+    <string name="please_wait">Please wait ...</string>
+
+    <!--custom exceptions - api-->
+    <string name="connection_error">Connection error</string>
+    <string name="connection_to_long">Connection take to long</string>
+    <string name="unexpected_error">Unexpected error</string>
+    <!--custom exceptions - user input-->
+    <string name="this_field_cant_be_empty">This field can\'t be empty!</string>
+    <string name="password_too_short">Password too short! At least 6 chars.</string>
+    <string name="not_an_email">This is not a valid email!</string>
+
+</resources>
