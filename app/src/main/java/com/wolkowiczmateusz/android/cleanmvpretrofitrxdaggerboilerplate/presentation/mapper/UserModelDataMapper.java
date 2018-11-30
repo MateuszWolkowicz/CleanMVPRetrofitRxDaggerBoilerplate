@@ -16,7 +16,7 @@ public class UserModelDataMapper {
 
     public UserModel transformUserToUserModel(User user) {
         if (user == null) {
-            throw new IllegalArgumentException("Cannot transformUserToUserModel a null value");
+            throw new IllegalArgumentException("Cannot transform a null value");
         }
         final UserModel userModel = new UserModel(user.getUserId());
         userModel.setSessionToken(user.getSessionToken());

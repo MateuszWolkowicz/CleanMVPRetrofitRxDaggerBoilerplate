@@ -17,7 +17,7 @@ public class UserEnitityMapper {
 
     public UserEntity userResponseToEntity(final UserResponse userResponse) {
         if (userResponse == null) {
-            throw new IllegalArgumentException("Cannot transformUserToUserModel a null value");
+            throw new IllegalArgumentException("Cannot transform a null value");
         }
         final UserEntity user = new UserEntity(userResponse.objectId);
         user.setSessionToken(userResponse.sessionToken);
@@ -30,7 +30,7 @@ public class UserEnitityMapper {
 
     public User entityToDomain(final UserEntity userEntity) {
         if (userEntity == null) {
-            throw new IllegalArgumentException("Cannot transformUserToUserModel a null value");
+            throw new IllegalArgumentException("Cannot transform a null value");
         }
         final User user = new User(userEntity.getUserId());
         user.setSessionToken(userEntity.getSessionToken());
@@ -43,7 +43,7 @@ public class UserEnitityMapper {
 
     public UserEntity domainToEntity(final User user) {
         if (user == null) {
-            throw new IllegalArgumentException("Cannot transformUserToUserModel a null value");
+            throw new IllegalArgumentException("Cannot transform a null value");
         }
         final UserEntity userEntity = new UserEntity(user.getUserId());
         userEntity.setSessionToken(user.getSessionToken());
