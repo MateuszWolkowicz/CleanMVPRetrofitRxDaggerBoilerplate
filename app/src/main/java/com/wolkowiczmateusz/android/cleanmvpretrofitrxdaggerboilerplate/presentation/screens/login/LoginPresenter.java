@@ -72,11 +72,11 @@ public class LoginPresenter<V extends LoginContract.View>
         getMvpView().showRegister();
     }
 
-    public boolean emailNotValid(String email) {
+    private boolean emailNotValid(String email) {
         return !emailMatcherWrapper.isEmailValid(email);
     }
 
-    public void tryLogin(String username, String password) {
+    private void tryLogin(String username, String password) {
         getCompositeDisposable().add(
                 tryToLoginUseCase.runUseCase(username, password)
                         .subscribeOn(threadExecutor.scheduler())

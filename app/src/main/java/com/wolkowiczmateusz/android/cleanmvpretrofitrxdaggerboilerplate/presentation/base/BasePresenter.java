@@ -24,7 +24,7 @@ public abstract class BasePresenter<V extends BaseContractMvpView> implements Ba
     @Inject
     CustomExceptions customExceptions;
 
-    public BasePresenter(Executor threadExecutor, MainThread mainThread, CompositeDisposable compositeDisposable) {
+    protected BasePresenter(Executor threadExecutor, MainThread mainThread, CompositeDisposable compositeDisposable) {
         this.threadExecutor = threadExecutor;
         this.mainThread = mainThread;
         this.compositeDisposable = compositeDisposable;
@@ -44,23 +44,23 @@ public abstract class BasePresenter<V extends BaseContractMvpView> implements Ba
         compositeDisposable.clear();
     }
 
-    public V getMvpView() {
-        return mvpView;
-    }
-
-    public boolean ViewIsConnected() {
+    protected boolean ViewIsConnected() {
         return getMvpView() != null;
     }
 
-    public CompositeDisposable getCompositeDisposable() {
+    protected V getMvpView() {
+        return mvpView;
+    }
+
+    protected CompositeDisposable getCompositeDisposable() {
         return compositeDisposable;
     }
 
-    public Resources getResources() {
+    protected Resources getResources() {
         return resources;
     }
 
-    public CustomExceptions getCustomExceptions() {
+    protected CustomExceptions getCustomExceptions() {
         return customExceptions;
     }
 }

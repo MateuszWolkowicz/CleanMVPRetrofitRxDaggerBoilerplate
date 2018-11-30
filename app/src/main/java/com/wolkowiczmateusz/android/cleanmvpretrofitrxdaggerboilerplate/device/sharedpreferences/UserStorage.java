@@ -12,12 +12,12 @@ import io.reactivex.Single;
  */
 public class UserStorage {
 
-    public static final String SESSION_TOKEN = "sessionToken";
-    public static final String USERNAME = "username";
-    public static final String EMAIL = "email";
-    public static final String FIRST_NAME = "firstName";
-    public static final String LAST_NAME = "lastName";
-    public static final String USER_ID = "userId";
+    private static final String SESSION_TOKEN = "sessionToken";
+    private static final String USERNAME = "username";
+    private static final String EMAIL = "email";
+    private static final String FIRST_NAME = "firstName";
+    private static final String LAST_NAME = "lastName";
+    private static final String USER_ID = "userId";
     private final SharedPreferences preferences;
 
     public UserStorage(SharedPreferences preferences) {

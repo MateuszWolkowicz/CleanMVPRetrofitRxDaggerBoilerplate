@@ -12,14 +12,12 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
 import retrofit2.Call;
-import retrofit2.Retrofit;
 
 /**
  * Created by MateuszW on 2018-05-09.
  */
 public class OnlineDataStore {
 
-    private final Retrofit retrofit;
     private UserStorage userStorage;
     private ErrorConverter converter;
     private CustomApi customApi;
@@ -28,11 +26,10 @@ public class OnlineDataStore {
 
     @Inject
     public OnlineDataStore(UserStorage userStorage, ErrorConverter converter, CustomApi customApi,
-                           Retrofit retrofit, UserEnitityMapper userEnitityMapper) {
+                           UserEnitityMapper userEnitityMapper) {
         this.userStorage = userStorage;
         this.converter = converter;
         this.customApi = customApi;
-        this.retrofit = retrofit;
         this.userEnitityMapper = userEnitityMapper;
     }
 

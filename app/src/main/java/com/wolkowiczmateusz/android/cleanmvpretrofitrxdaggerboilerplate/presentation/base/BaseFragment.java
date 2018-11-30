@@ -9,7 +9,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 
 public abstract class BaseFragment<P extends BaseContractMvpPresenter> extends Fragment implements BaseContractMvpView<P> {
 
-    public DialogTypeStrategy dialog;
+    private DialogTypeStrategy dialog;
     private P basePresenter;
 
     @Override
