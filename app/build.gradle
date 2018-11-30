@@ -8,7 +8,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.android.podcastplayermy.TestApplicationRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -48,7 +48,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.SquareUpRetrofit2Adapter"
     compileOnly "org.projectlombok:lombok:$rootProject.ext.Lombok"
     annotationProcessor "org.projectlombok:lombok:$rootProject.ext.Lombok"
-    implementation "org.modelmapper:modelmapper:$rootProject.ext.ModelMapper"
 
     //graphic/animation/etc.
     implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.SpinKitVersion"
@@ -72,7 +71,7 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion"
 
     // Dagger in androidTest
-    androidTestAnnotationProcessor  "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
     // Mockito in androidTest
     androidTestImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"

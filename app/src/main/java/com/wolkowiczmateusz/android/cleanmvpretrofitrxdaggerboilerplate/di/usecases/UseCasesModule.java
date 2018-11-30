@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.usecases;
 
-
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.interactors.Impl.TryToLoginUseCaseImpl;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.interactors.TryToLoginUseCase;
 
@@ -14,5 +13,4 @@ public class UseCasesModule {
     public TryToLoginUseCase provideTryToLoginUseCase(TryToLoginUseCaseImpl tryToLoginUseCaseImpl) {
         return tryToLoginUseCaseImpl;
     }
-
 }

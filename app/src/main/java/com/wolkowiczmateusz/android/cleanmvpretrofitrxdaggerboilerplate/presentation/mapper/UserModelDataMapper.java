@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.mapper;
 
-
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model.User;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.model.UserModel;
 

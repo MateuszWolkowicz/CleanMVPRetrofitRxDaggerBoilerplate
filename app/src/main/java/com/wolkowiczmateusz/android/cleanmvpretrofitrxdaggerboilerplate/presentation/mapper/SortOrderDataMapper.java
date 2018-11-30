@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.mapper;
 
-
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model.SortOrder;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.model.SortOrderModel;
 

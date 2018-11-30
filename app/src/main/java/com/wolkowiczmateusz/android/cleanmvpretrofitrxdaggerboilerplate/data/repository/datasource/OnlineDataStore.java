@@ -1,8 +1,7 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.repository.datasource;
 
-
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.CustomApi;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.ErrorConverter;
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.PodcastApi;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.UserResponse;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mapper.UserEnitityMapper;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model.UserEntity;
@@ -23,17 +22,16 @@ public class OnlineDataStore {
     private final Retrofit retrofit;
     private UserStorage userStorage;
     private ErrorConverter converter;
-    private PodcastApi podcastApi;
+    private CustomApi customApi;
     private UserEnitityMapper userEnitityMapper;
     private Call<UserResponse> userResponseCall;
 
-
     @Inject
-    public OnlineDataStore(UserStorage userStorage, ErrorConverter converter, PodcastApi podcastApi,
+    public OnlineDataStore(UserStorage userStorage, ErrorConverter converter, CustomApi customApi,
                            Retrofit retrofit, UserEnitityMapper userEnitityMapper) {
         this.userStorage = userStorage;
         this.converter = converter;
-        this.podcastApi = podcastApi;
+        this.customApi = customApi;
         this.retrofit = retrofit;
         this.userEnitityMapper = userEnitityMapper;
     }
@@ -44,10 +42,9 @@ public class OnlineDataStore {
                 throw new IllegalArgumentException("Any of each parameters can't be null");
             }
         }
-        return podcastApi.getLogin(params[0], params[1])
+        return customApi.getLogin(params[0], params[1])
                 .map(userEnitityMapper::userResponseToEntity)
                 .take(1);
     }
-
 }
 

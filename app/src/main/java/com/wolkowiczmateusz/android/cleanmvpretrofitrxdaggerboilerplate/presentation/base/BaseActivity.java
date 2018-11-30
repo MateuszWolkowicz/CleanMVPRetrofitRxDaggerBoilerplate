@@ -14,6 +14,7 @@ public abstract class BaseActivity<P extends BaseContractMvpPresenter> extends A
 
     private DialogTypeStrategy dialog;
     private P basePresenter;
+
     @Override
     public void hideProgressDialog() {
         dialog.dismiss();

@@ -49,7 +49,6 @@ ext {
     RxJava2Retrofit2Adapter = '1.0.0'
     SquareUpRetrofit2Adapter = '2.0.2'
     Lombok = '1.16.18'
-    ModelMapper = '0.7.4'
     SpinKitVersion = '1.1.0'
 
     //tests

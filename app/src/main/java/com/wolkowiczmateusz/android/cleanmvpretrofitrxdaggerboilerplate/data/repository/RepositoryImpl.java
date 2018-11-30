@@ -31,7 +31,7 @@ public class RepositoryImpl implements Repository {
             SortOrderEntityMapper sortOrderEntityMapper,
             OfflineDataStore offlineDataStore,
             OnlineDataStore onlineDataStore
-            ) {
+    ) {
         this.userEnitityMapper = userEnitityMapper;
         this.sortOrderEntityMapper = sortOrderEntityMapper;
         this.offlineDataStore = offlineDataStore;
@@ -53,7 +53,6 @@ public class RepositoryImpl implements Repository {
     public Single<Boolean> isUserLogin() {
         return Single.defer(offlineDataStore::isUserLogin);
     }
-
 
     private SortOrderEntity sortOrderEntity(SortOrder sortOrder) {
         return sortOrderEntityMapper.domainToEntity(sortOrder);
