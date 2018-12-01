@@ -15,7 +15,6 @@ import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
-
 public class RepositoryImpl implements Repository {
 
     private UserEnitityMapper userEnitityMapper;

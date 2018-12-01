@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 
-
 public class OfflineDataStore {
 
     private UserStorage userStorage;

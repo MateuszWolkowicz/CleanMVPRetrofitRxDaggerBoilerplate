@@ -5,7 +5,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 
 import javax.inject.Inject;
 
-
 public class UserModelDataMapper {
 
     @Inject

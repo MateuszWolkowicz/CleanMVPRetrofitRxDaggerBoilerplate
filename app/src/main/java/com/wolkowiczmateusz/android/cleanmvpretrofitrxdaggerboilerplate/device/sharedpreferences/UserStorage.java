@@ -7,7 +7,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mod
 import io.reactivex.Completable;
 import io.reactivex.Single;
 
-
 public class UserStorage {
 
     private static final String SESSION_TOKEN = "sessionToken";

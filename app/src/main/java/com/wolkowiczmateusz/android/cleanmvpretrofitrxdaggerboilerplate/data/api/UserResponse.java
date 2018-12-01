@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api;
 
-
 public class UserResponse {
 
     public String username;

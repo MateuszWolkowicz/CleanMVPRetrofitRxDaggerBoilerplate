@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base;
 
-
 public interface BaseContractMvpView<P extends BaseContractMvpPresenter> {
 
     void hideProgressDialog();

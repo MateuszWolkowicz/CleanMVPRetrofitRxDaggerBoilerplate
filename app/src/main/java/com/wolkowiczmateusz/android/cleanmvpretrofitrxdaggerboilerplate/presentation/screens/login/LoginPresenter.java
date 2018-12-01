@@ -13,7 +13,6 @@ import javax.inject.Inject;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 
-
 public class LoginPresenter<V extends LoginContract.View>
         extends BasePresenter<V>
         implements LoginContract.Presenter<V> {

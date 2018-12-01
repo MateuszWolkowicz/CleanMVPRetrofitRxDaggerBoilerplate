@@ -9,7 +9,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.app.D
 
 import timber.log.Timber;
 
-
 public class App extends Application {
 
     public static AppComponent component;

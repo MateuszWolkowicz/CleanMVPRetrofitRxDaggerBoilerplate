@@ -8,7 +8,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.e
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-
 public class MainThreadImpl implements MainThread {
 
     private MainThreadImpl() {

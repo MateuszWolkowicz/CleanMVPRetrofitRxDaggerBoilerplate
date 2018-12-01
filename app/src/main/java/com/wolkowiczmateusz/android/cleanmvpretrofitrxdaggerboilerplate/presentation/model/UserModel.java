@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.model;
 
-
 public class UserModel {
 
     private String sessionToken;

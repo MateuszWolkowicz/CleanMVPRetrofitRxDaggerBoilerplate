@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model;
 
-
 public class UserEntity {
 
     private String sessionToken;

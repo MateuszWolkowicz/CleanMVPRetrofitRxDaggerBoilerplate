@@ -2,7 +2,6 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 
 import io.reactivex.Scheduler;
 
-
 public interface Executor extends java.util.concurrent.Executor {
 
     Scheduler scheduler();

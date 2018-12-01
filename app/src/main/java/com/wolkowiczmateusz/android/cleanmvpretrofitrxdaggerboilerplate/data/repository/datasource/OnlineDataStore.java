@@ -13,7 +13,6 @@ import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
 import retrofit2.Call;
 
-
 public class OnlineDataStore {
 
     private UserStorage userStorage;

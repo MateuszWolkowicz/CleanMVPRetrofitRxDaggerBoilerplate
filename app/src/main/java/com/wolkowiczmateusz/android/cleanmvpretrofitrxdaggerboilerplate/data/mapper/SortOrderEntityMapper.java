@@ -5,7 +5,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.m
 
 import javax.inject.Inject;
 
-
 public class SortOrderEntityMapper {
 
     @Inject

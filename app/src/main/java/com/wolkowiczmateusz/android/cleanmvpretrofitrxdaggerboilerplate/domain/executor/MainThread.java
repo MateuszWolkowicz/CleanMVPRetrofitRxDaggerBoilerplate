@@ -2,7 +2,6 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.
 
 import io.reactivex.Scheduler;
 
-
 public interface MainThread {
 
     /**

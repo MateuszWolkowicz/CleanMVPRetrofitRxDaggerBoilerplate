@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model;
 
-
 public class User {
 
     private String sessionToken;

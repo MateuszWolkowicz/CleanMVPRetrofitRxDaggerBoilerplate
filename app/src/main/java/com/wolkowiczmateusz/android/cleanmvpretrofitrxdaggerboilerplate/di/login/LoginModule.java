@@ -6,7 +6,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import dagger.Module;
 import dagger.Provides;
 
-
 @Module
 public class LoginModule {
 

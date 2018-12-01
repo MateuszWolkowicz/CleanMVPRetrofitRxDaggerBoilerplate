@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 
-
 public class ThreadExecutor implements Executor {
 
     // This is a singleton

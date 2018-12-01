@@ -8,7 +8,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 
-
 public class TrampolineSchedulerProvider implements MainThread, Executor {
 
     @Override
