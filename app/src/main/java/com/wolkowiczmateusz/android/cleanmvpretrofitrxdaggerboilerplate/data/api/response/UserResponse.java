@@ -1,4 +1,4 @@
-package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api;
+package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.response;
 
 public class UserResponse {
 

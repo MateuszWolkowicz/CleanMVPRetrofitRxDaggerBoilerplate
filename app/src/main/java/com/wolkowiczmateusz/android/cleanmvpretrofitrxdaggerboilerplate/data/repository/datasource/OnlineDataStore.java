@@ -1,31 +1,22 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.repository.datasource;
 
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.CustomApi;
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.ErrorConverter;
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.UserResponse;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mapper.UserEnitityMapper;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model.UserEntity;
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.device.sharedpreferences.UserStorage;
 
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
-import retrofit2.Call;
 
 public class OnlineDataStore {
 
-    private UserStorage userStorage;
-    private ErrorConverter converter;
     private CustomApi customApi;
     private UserEnitityMapper userEnitityMapper;
-    private Call<UserResponse> userResponseCall;
 
     @Inject
-    public OnlineDataStore(UserStorage userStorage, ErrorConverter converter, CustomApi customApi,
+    public OnlineDataStore(CustomApi customApi,
                            UserEnitityMapper userEnitityMapper) {
-        this.userStorage = userStorage;
-        this.converter = converter;
         this.customApi = customApi;
         this.userEnitityMapper = userEnitityMapper;
     }

@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
 import static org.mockito.Mockito.mock;
 
 @Module
-public class MockPodcastApiModule {
+public class MockCustomApiModule {
 
     @Singleton //important ! Without it, it doesn't work
     @Provides

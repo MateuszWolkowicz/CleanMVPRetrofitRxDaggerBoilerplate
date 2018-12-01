@@ -21,7 +21,7 @@ public class ApiModule {
     private static final int REQUEST_TIMEOUT = 5;
 
     @Provides
-    public CustomApi providePodcastApi(Retrofit retrofit) {
+    public CustomApi provideCustomApi(Retrofit retrofit) {
         return retrofit.create(CustomApi.class);
     }
 

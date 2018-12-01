@@ -18,8 +18,8 @@ public class App extends Application {
         return (App) context.getApplicationContext();
     }
 
-    public void getNonStaticContext() {
-        App.getContext();
+    public static Context getContext() {
+        return context;
     }
 
     @Override
@@ -36,9 +36,5 @@ public class App extends Application {
 
     public AppComponent getAppComponent() {
         return component;
-    }
-
-    public static Context getContext() {
-        return context;
     }
 }
