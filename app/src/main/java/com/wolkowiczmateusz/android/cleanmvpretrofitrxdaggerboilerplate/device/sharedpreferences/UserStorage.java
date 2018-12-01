@@ -7,9 +7,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mod
 import io.reactivex.Completable;
 import io.reactivex.Single;
 
-/**
- * Created by MateuszW on 2018-03-31.
- */
+
 public class UserStorage {
 
     private static final String SESSION_TOKEN = "sessionToken";

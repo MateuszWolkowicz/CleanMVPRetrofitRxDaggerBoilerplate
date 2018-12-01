@@ -1,8 +1,6 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api;
 
-/**
- * Created by MateuszW on 2018-03-30.
- */
+
 public class UserResponse {
 
     public String username;

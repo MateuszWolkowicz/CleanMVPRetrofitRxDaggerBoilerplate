@@ -8,9 +8,7 @@ import javax.inject.Inject;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 
-/**
- * Created by MateuszW on 2018-05-09.
- */
+
 public class OfflineDataStore {
 
     private UserStorage userStorage;

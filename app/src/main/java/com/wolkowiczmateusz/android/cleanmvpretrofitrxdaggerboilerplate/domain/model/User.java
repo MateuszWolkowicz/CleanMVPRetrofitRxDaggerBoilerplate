@@ -1,8 +1,6 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model;
 
-/**
- * Created by MateuszW on 2018-05-07.
- */
+
 public class User {
 
     private String sessionToken;

@@ -7,9 +7,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 
-/**
- * Created by MateuszW on 2018-04-02.
- */
+
 public class ErrorConverter {
 
     private final Retrofit retrofit;

@@ -6,9 +6,7 @@ import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
-/**
- * Created by MateuszW on 2018-05-07.
- */
+
 public interface Repository {
 
     Single<User> getLoginUser();

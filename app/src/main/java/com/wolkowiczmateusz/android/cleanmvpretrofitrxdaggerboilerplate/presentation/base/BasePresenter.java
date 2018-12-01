@@ -10,9 +10,7 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-/**
- * Created by MateuszW on 2018-04-11.
- */
+
 public abstract class BasePresenter<V extends BaseContractMvpView> implements BaseContractMvpPresenter<V> {
 
     protected Executor threadExecutor;

@@ -5,9 +5,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 
 import javax.inject.Inject;
 
-/**
- * Created by MateuszW on 2018-05-08.
- */
+
 public class UserModelDataMapper {
 
     @Inject

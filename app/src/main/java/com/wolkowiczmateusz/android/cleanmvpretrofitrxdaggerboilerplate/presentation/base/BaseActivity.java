@@ -7,9 +7,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressDialog.DialogTypeStrategy;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressDialog.NonCancelableProgressDialog;
 
-/**
- * Created by MateuszW on 2018-05-24.
- */
+
 public abstract class BaseActivity<P extends BaseContractMvpPresenter> extends AppCompatActivity implements BaseContractMvpView<P> {
 
     private DialogTypeStrategy dialog;

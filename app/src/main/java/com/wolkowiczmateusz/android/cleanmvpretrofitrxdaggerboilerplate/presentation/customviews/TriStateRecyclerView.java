@@ -7,9 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-/**
- * Created by MateuszW on 2018-04-02.
- */
+
 public class TriStateRecyclerView extends RecyclerView {
 
     private View emptyView;

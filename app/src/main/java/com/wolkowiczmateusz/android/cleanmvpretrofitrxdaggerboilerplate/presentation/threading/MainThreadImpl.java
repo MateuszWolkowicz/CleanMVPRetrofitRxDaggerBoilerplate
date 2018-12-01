@@ -8,9 +8,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.e
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-/**
- * Created by MateuszW on 2018-05-22.
- */
+
 public class MainThreadImpl implements MainThread {
 
     private MainThreadImpl() {

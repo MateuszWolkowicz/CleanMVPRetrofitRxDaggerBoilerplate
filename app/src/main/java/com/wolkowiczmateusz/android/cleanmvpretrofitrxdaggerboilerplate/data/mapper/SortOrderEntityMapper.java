@@ -5,9 +5,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.m
 
 import javax.inject.Inject;
 
-/**
- * Created by MateuszW on 2018-05-27.
- */
+
 public class SortOrderEntityMapper {
 
     @Inject

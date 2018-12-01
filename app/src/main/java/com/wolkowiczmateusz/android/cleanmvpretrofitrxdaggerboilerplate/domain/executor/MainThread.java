@@ -2,9 +2,7 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.
 
 import io.reactivex.Scheduler;
 
-/**
- * Created by MateuszW on 2018-05-22.
- */
+
 public interface MainThread {
 
     /**

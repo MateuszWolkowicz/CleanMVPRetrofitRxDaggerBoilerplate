@@ -8,9 +8,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
-/**
- * Created by MateuszW on 2018-05-23.
- */
+
 public class TryToLoginUseCaseImpl implements TryToLoginUseCase {
 
     private Repository repository;

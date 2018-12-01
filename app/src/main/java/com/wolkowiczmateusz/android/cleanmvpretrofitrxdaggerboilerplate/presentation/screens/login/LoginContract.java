@@ -3,9 +3,7 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base.BaseContractMvpPresenter;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base.BaseContractMvpView;
 
-/**
- * Created by MateuszW on 2018-04-06.
- */
+
 public interface LoginContract {
 
     interface View extends BaseContractMvpView {
