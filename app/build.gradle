@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -26,6 +29,11 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //android
@@ -35,22 +43,24 @@ dependencies {
     //others
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+    kapt  "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
     implementation "com.j256.ormlite:ormlite-android:$rootProject.ext.ormliteVersion"
     implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+//    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
     implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
-    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.RxJava2Version"
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.RxJava2AndroidVersion"
-    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.RxJava2Retrofit2Adapter"
-    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.SquareUpRetrofit2Adapter"
-    compileOnly "org.projectlombok:lombok:$rootProject.ext.Lombok"
-    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.Lombok"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxJava2AndroidVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJava2Retrofit2Adapter"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.squareUpRetrofit2Adapter"
+    compileOnly "org.projectlombok:lombok:$rootProject.ext.lombok"
+    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombok"
 
     //graphic/animation/etc.
-    implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.SpinKitVersion"
+    implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.spinKitVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
 
     // Dependencies for local unit tests
@@ -72,9 +82,16 @@ dependencies {
 
     // Dagger in androidTest
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    kaptTest "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
     // Mockito in androidTest
     androidTestImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
 
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+}
+repositories {
+    mavenCentral()
 }
