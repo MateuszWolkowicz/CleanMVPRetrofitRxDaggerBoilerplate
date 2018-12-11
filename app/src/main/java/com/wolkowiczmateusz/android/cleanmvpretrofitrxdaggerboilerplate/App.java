@@ -1,7 +1,6 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.app.AppComponent;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.app.AppModule;
@@ -12,15 +11,6 @@ import timber.log.Timber;
 public class App extends Application {
 
     public static AppComponent component;
-    private static Context context;
-
-    public static App from(final Context context) {
-        return (App) context.getApplicationContext();
-    }
-
-    public static Context getContext() {
-        return context;
-    }
 
     @Override
     public void onCreate() {
@@ -31,7 +21,6 @@ public class App extends Application {
         component = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .build();
-        context = this;
     }
 
     public AppComponent getAppComponent() {
