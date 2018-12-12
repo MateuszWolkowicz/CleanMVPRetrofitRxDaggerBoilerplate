@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -43,7 +45,7 @@ dependencies {
     //others
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
-    kapt  "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+    kapt "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
@@ -56,8 +58,8 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxJava2AndroidVersion"
     implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJava2Retrofit2Adapter"
     implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.squareUpRetrofit2Adapter"
-    compileOnly "org.projectlombok:lombok:$rootProject.ext.lombok"
-    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombok"
+    compileOnly "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
 
     //graphic/animation/etc.
     implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.spinKitVersion"
@@ -83,6 +85,7 @@ dependencies {
     // Dagger in androidTest
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
     kaptTest "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+
     // Mockito in androidTest
     androidTestImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
@@ -91,7 +94,15 @@ dependencies {
     //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    //crash reporting
+    implementation "com.crashlytics.sdk.android:crashlytics:$rootProject.ext.crashlyticsVersion"
+
+    // Firebase
+    implementation "com.google.firebase:firebase-core:$rootProject.ext.firebaseCoreVersion"
+    implementation "com.google.firebase:firebase-perf:$rootProject.ext.firebasePerfVersion"
 }
 repositories {
     mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
 }
+apply plugin: 'com.google.gms.google-services'
