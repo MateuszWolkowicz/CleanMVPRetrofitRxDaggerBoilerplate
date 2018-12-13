@@ -13,9 +13,7 @@ import javax.inject.Inject;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 
-public class LoginPresenter<V extends LoginContract.View>
-        extends BasePresenter<V>
-        implements LoginContract.Presenter<V> {
+public class LoginPresenter<V extends LoginContract.View> extends BasePresenter<V> implements LoginContract.Presenter<V> {
 
     @Inject
     TryToLoginUseCase tryToLoginUseCase;
@@ -31,7 +29,7 @@ public class LoginPresenter<V extends LoginContract.View>
     }
 
     @Override
-    public void LoginClick(String email, String password) {
+    public void loginClick(String email, String password) {
         if (email == null || password == null) {
             throw new IllegalArgumentException("Email or Password can't be null");
         }
@@ -59,13 +57,13 @@ public class LoginPresenter<V extends LoginContract.View>
         if (!hasErrors) {
             tryLogin(email, password);
         }
-        if (ViewIsConnected()) {
+        if (isViewConnected()) {
             getMvpView().showErrors(emailError, passwordError);
         }
     }
 
     @Override
-    public void RegisterClick() {
+    public void registerClick() {
         getMvpView().showRegister();
     }
 
@@ -76,8 +74,8 @@ public class LoginPresenter<V extends LoginContract.View>
     private void tryLogin(String username, String password) {
         getCompositeDisposable().add(
                 tryToLoginUseCase.runUseCase(username, password)
-                        .subscribeOn(threadExecutor.scheduler())
-                        .observeOn(mainThread.scheduler())
+                        .subscribeOn(getThreadExecutor().scheduler())
+                        .observeOn(getMainThread().scheduler())
                         .doOnSubscribe(v -> {
                             getMvpView().disableLoginButton(true);
                             getMvpView().showProgressDialog(getResources().getString(R.string.please_wait), false, false);
@@ -94,14 +92,14 @@ public class LoginPresenter<V extends LoginContract.View>
 
         @Override
         public void onNext(User msg) {
-            if (ViewIsConnected()) {
-                getMvpView().Login();
+            if (isViewConnected()) {
+                getMvpView().login();
             }
         }
 
         @Override
         public void onError(Throwable throwable) {
-            if (ViewIsConnected()) {
+            if (isViewConnected()) {
                 getMvpView().showError(getCustomExceptions().getException(throwable));
             }
         }
