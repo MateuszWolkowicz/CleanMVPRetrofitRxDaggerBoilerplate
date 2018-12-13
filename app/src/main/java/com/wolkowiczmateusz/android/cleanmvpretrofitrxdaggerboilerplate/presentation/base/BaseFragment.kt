@@ -18,7 +18,7 @@ abstract class BaseFragment : Fragment(), BaseContractMvpView {
     override fun showProgressDialog(msg: String) {
         // Strategy Pattern
         dialog = DialogTypeStrategy(CancelableProgressDialog())
-        dialog.show(activity, msg)
+        activity?.let { dialog.show(it, msg) }
     }
 
     override fun showProgressDialog(msg: String, cancelable: Boolean, cancelableInTouchMode: Boolean) {
@@ -28,7 +28,7 @@ abstract class BaseFragment : Fragment(), BaseContractMvpView {
         } else {
             dialog = DialogTypeStrategy(NonCancelableProgressDialog())
         }
-        dialog.show(activity, msg)
+        activity?.let { dialog.show(it, msg) }
     }
 
     override fun showError(exception: String) {
