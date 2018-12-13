@@ -59,6 +59,7 @@ ext {
     crashlyticsVersion = '2.9.7'
     firebaseCoreVersion = '16.0.6'
     firebasePerfVersion = '16.2.2'
+    leakCanaryVersion = '1.6.1'
 
     //tests
     junitVersion = '4.12'

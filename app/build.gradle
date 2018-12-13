@@ -38,30 +38,43 @@ kapt {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //android
+
+    // Android
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintlayoutVersion"
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
-    //others
+
+    // DI
+    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+
+    // Logger
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+
+    // Binding view elements
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     kapt "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+
+    // Db
     implementation "com.j256.ormlite:ormlite-android:$rootProject.ext.ormliteVersion"
-    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
-//    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
-    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+
+    // Multithreading
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJava2Version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxJava2AndroidVersion"
-    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJava2Retrofit2Adapter"
-    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.squareUpRetrofit2Adapter"
+
+    // Java boilerplate code helper
     compileOnly "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
     annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
 
-    //graphic/animation/etc.
+    // Others
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJava2Retrofit2Adapter"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.squareUpRetrofit2Adapter"
+
+    // Graphic/animation/etc.
     implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.spinKitVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
 
@@ -91,21 +104,21 @@ dependencies {
     androidTestImplementation "com.linkedin.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
 
-    //Kotlin
+    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //crash reporting
+    // Crash reporting
     implementation "com.crashlytics.sdk.android:crashlytics:$rootProject.ext.crashlyticsVersion"
 
     // Firebase
     implementation "com.google.firebase:firebase-core:$rootProject.ext.firebaseCoreVersion"
     implementation "com.google.firebase:firebase-perf:$rootProject.ext.firebasePerfVersion"
 
-    //Memory Leaks
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    // Memory Leaks
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakCanaryVersion"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakCanaryVersion"
     // Optional, if you use support library fragments:
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
+    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$rootProject.ext.leakCanaryVersion"
 }
 repositories {
     mavenCentral()

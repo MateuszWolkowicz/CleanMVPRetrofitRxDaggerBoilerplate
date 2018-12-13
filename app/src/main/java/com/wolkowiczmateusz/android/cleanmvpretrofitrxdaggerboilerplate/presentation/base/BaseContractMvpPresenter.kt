@@ -2,7 +2,7 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 
 interface BaseContractMvpPresenter<V : BaseContractMvpView> {
 
-    fun onAttach(mvpView: V?)
+    fun onAttach(mvpView: V)
     fun onDetach()
-    fun getMvpView(): V?
+//    fun getMvpView(): V?
 }
