@@ -27,23 +27,27 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
         var hasErrors = false
         val emailError: String?
         val passwordError: String?
-        if (email.isEmpty()) {
-            emailError = resources.getString(R.string.this_field_cant_be_empty)
-            hasErrors = true
-        } else if (emailNotValid(email)) {
-            emailError = resources.getString(R.string.not_an_email)
-            hasErrors = true
-        } else {
-            emailError = null
+        when {
+            email.isEmpty() -> {
+                emailError = resources.getString(R.string.this_field_cant_be_empty)
+                hasErrors = true
+            }
+            emailNotValid(email) -> {
+                emailError = resources.getString(R.string.not_an_email)
+                hasErrors = true
+            }
+            else -> emailError = null
         }
-        if (password.isEmpty()) {
-            passwordError = resources.getString(R.string.this_field_cant_be_empty)
-            hasErrors = true
-        } else if (password.length < 6) {
-            passwordError = resources.getString(R.string.password_too_short)
-            hasErrors = true
-        } else {
-            passwordError = null
+        when {
+            password.isEmpty() -> {
+                passwordError = resources.getString(R.string.this_field_cant_be_empty)
+                hasErrors = true
+            }
+            password.length < 6 -> {
+                passwordError = resources.getString(R.string.password_too_short)
+                hasErrors = true
+            }
+            else -> passwordError = null
         }
         if (!hasErrors) {
             tryLogin(email, password)

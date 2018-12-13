@@ -1,5 +1,7 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate;
 
+import android.support.annotation.NonNull;
+
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.app.AppComponent;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.app.AppModule;
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.components.MockAppComponent;
@@ -12,6 +14,7 @@ public class TestApplication extends App {
         return (MockAppComponent) getAppComponent();
     }
 
+    @NonNull
     @Override
     public AppComponent getAppComponent() {
         if (mockAppComponent == null) {

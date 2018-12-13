@@ -57,8 +57,7 @@ class ApiModule {
     }
 
     companion object {
-
-        private val BASE_URL = "https://parseapi.back4app.com/"
-        private val REQUEST_TIMEOUT = 5
+        private const val BASE_URL = "https://parseapi.back4app.com/"
+        private const val REQUEST_TIMEOUT = 5
     }
 }

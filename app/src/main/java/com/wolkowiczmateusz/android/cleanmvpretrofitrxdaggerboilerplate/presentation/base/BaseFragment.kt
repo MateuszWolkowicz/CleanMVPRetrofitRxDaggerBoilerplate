@@ -23,10 +23,10 @@ abstract class BaseFragment : Fragment(), BaseContractMvpView {
 
     override fun showProgressDialog(msg: String, cancelable: Boolean, cancelableInTouchMode: Boolean) {
         // Strategy Pattern
-        if ((!cancelable) || (!cancelableInTouchMode)) {
-            dialog = DialogTypeStrategy(CancelableProgressDialog())
+        dialog = if ((!cancelable) || (!cancelableInTouchMode)) {
+            DialogTypeStrategy(CancelableProgressDialog())
         } else {
-            dialog = DialogTypeStrategy(NonCancelableProgressDialog())
+            DialogTypeStrategy(NonCancelableProgressDialog())
         }
         activity?.let { dialog.show(it, msg) }
     }

@@ -8,8 +8,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:contentDescription="@string/login_background"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background" />
 
     <ScrollView
@@ -44,9 +44,9 @@
                     style="@style/EditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autofillHints="user_email"
                     android:drawableStart="@drawable/ic_email_selector"
                     android:hint="@string/e_mail"
-                    android:autofillHints="user_email"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 

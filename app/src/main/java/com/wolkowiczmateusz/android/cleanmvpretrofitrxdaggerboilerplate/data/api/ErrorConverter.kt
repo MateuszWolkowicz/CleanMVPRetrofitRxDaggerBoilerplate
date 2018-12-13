@@ -8,11 +8,11 @@ class ErrorConverter(private val retrofit: Retrofit) {
 
     fun convert(responseBody: ResponseBody): ErrorResponse? {
         val converter = retrofit.responseBodyConverter<ErrorResponse>(ErrorResponse::class.java, arrayOf())
-        try {
-            return converter.convert(responseBody)
+        return try {
+            converter.convert(responseBody)
         } catch (e: IOException) {
             e.printStackTrace()
-            return null
+            null
         }
 
     }

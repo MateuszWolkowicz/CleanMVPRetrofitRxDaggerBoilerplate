@@ -52,11 +52,11 @@ class UserStorage(private val preferences: SharedPreferences) {
 
     companion object {
 
-        private val SESSION_TOKEN = "sessionToken"
-        private val USERNAME = "username"
-        private val EMAIL = "email"
-        private val FIRST_NAME = "firstName"
-        private val LAST_NAME = "lastName"
-        private val USER_ID = "userId"
+        private const val SESSION_TOKEN = "sessionToken"
+        private const val USERNAME = "username"
+        private const val EMAIL = "email"
+        private const val FIRST_NAME = "firstName"
+        private const val LAST_NAME = "lastName"
+        private const val USER_ID = "userId"
     }
 }

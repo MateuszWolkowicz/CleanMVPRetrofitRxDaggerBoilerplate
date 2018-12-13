@@ -16,30 +16,27 @@ class CustomExceptions
     lateinit var resources: Resources
 
     fun getException(throwable: Throwable): String {
-        if (throwable is HttpException) {
+        return if (throwable is HttpException) {
             val retrofitResponseBody = throwable.response().errorBody()
-            return getRetrofitErrorMessage(retrofitResponseBody)
-        } else return if (throwable is SocketTimeoutException) {
-            resources.getString(R.string.connection_to_long)
-        } else if (throwable is IOException) {
-            resources.getString(R.string.connection_error)
-        } else {
-            resources.getString(R.string.unexpected_error)
+            getRetrofitErrorMessage(retrofitResponseBody)
+        } else when (throwable) {
+            is SocketTimeoutException -> resources.getString(R.string.connection_to_long)
+            is IOException -> resources.getString(R.string.connection_error)
+            else -> resources.getString(R.string.unexpected_error)
         }
     }
 
     private fun getRetrofitErrorMessage(responseBody: ResponseBody): String {
-        try {
+        return try {
             var error = responseBody.string()
             try {
                 val jsonObject = JSONObject(error)
                 error = jsonObject.getString("error")
             } catch (e: Exception) {
             }
-
-            return error
+            error
         } catch (e: Exception) {
-            return e.message.toString()
+            e.message.toString()
         }
 
     }

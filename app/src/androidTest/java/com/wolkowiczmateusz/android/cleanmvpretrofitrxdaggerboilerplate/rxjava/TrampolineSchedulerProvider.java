@@ -10,13 +10,14 @@ import io.reactivex.schedulers.Schedulers;
 
 public class TrampolineSchedulerProvider implements MainThread, Executor {
 
+    @NonNull
     @Override
     public Scheduler scheduler() {
         return Schedulers.trampoline();
     }
 
     @Override
-    public void post(Runnable runnable) {
+    public void post(@NonNull Runnable runnable) {
     }
 
     @Override

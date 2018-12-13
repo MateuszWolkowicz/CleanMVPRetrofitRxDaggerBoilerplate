@@ -32,10 +32,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     }
 
     private fun setOnClickListeners() {
-        loginButton.setOnClickListener {
-            loginPresenter.loginClick(emailEditText.text
-                    .toString(), passwordEditText.text.toString())
-        }
+        loginButton.setOnClickListener { loginPresenter.loginClick(emailEditText.text.toString(), passwordEditText.text.toString()) }
         registerButton.setOnClickListener { loginPresenter.registerClick() }
     }
 
