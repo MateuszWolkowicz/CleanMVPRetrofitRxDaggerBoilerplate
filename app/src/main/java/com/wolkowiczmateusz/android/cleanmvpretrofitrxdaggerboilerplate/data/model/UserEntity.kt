@@ -1,6 +1,6 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model
 
-data class UserEntity(val userId: String,
+data class UserEntity(val userId: String?,
                       var sessionToken: String? = null,
                       var username: String? = null,
                       var email: String? = null,
