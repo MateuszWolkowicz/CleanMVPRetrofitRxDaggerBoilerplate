@@ -13,7 +13,7 @@ import timber.log.Timber
 
 open class App : Application() {
 
-    lateinit var appComponent: AppComponent
+    open lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
