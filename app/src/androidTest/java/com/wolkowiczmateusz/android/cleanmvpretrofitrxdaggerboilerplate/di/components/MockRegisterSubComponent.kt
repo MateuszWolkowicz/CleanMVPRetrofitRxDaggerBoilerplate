@@ -3,3 +3,4 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.comp
 //@RegisterScope
 //@Subcomponent(modules = RegisterModule.class)
 interface MockRegisterSubComponent//    void inject(RegisterActivityTest activity);
+
