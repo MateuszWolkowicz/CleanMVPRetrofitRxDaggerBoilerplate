@@ -67,13 +67,6 @@ dependencies {
     compileOnly "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
     annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
 
-    // Others
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
-    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJava2Retrofit2Adapter"
-    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.squareUpRetrofit2Adapter"
-
     // Graphic/animation/etc.
     implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.spinKitVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
@@ -105,7 +98,7 @@ dependencies {
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
 
     // Crash reporting
     implementation "com.crashlytics.sdk.android:crashlytics:$rootProject.ext.crashlyticsVersion"
@@ -119,6 +112,13 @@ dependencies {
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakCanaryVersion"
     // Optional, if you use support library fragments:
     debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$rootProject.ext.leakCanaryVersion"
+
+    // Others
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJava2Retrofit2Adapter"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.squareUpRetrofit2Adapter"
 }
 repositories {
     mavenCentral()

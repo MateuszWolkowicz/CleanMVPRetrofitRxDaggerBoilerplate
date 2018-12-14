@@ -2,12 +2,10 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 
 import android.content.Intent
 import android.os.Bundle
-import com.crashlytics.android.Crashlytics
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.App
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.R
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base.BaseActivity
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.main.MainActivity
-import io.fabric.sdk.android.Fabric
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
@@ -18,13 +16,13 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Fabric.with(this, Crashlytics())
         setContentView(R.layout.activity_login)
         (application as App).appComponent
                 .inject(this)
         loginPresenter.onAttach(this)
         setOnClickListeners()
     }
+
 
     override fun onDestroy() {
         loginPresenter.onDetach()
