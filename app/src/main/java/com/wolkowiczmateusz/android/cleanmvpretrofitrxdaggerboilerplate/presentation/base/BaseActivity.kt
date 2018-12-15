@@ -23,7 +23,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractMvpView {
 
     override fun showProgressDialog(msg: String, cancelable: Boolean, cancelableInTouchMode: Boolean) {
         // Strategy Pattern
-        dialog = if ((!cancelable) || (!cancelableInTouchMode)) {
+        dialog = if ((cancelable) || (cancelableInTouchMode)) {
             DialogTypeStrategy(CancelableProgressDialog())
         } else {
             DialogTypeStrategy(NonCancelableProgressDialog())

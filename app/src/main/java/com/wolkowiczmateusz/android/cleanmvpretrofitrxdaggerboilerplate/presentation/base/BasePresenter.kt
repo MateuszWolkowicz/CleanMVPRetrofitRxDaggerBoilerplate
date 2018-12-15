@@ -23,7 +23,7 @@ abstract class BasePresenter<V : BaseContractMvpView> protected constructor(prot
         this.mvpView = null
         //it is very important to follow the standard to clear Observables (other than RxBus)
         // when activity is destroyed
-        compositeDisposable.dispose()
+        compositeDisposable.clear()
     }
 
     protected fun isViewConnected(): Boolean {

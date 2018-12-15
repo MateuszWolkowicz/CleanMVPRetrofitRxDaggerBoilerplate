@@ -72,7 +72,7 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
                         .observeOn(mainThread.scheduler())
                         .doOnSubscribe { v ->
                             getMvpView()?.disableLoginButton(true)
-                            getMvpView()?.showProgressDialog(resources.getString(R.string.please_wait), false, false)
+                            getMvpView()?.showProgressDialog(resources.getString(R.string.please_wait), true, true)
                         }
                         .doOnEach { v ->
                             getMvpView()?.hideProgressDialog()
