@@ -5,14 +5,14 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mod
 
 object TestData {
 
-    val ERROR_MESSAGE = "error"
+    const val ERROR_MESSAGE = "error"
     val CORRECT_USER_ENTITY = correctTestUserEntity
     val CORRECT_USER_RESPONSE = correctTestUserResponse
 
-    val correctTestUserEntity: UserEntity
+    private val correctTestUserEntity: UserEntity
         get() = UserEntity("1", "token", "Mateusz",
                 "wolkowicz.mateusz@gmail.com", "Mateusz", "Wołkowicz")
-    val correctTestUserResponse: UserResponse
+    private val correctTestUserResponse: UserResponse
         get() {
             val userResponse = UserResponse()
             userResponse.username = "Mateusz"

@@ -8,7 +8,9 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 abstract class BasePresenter<V : BaseContractMvpView> protected constructor(protected var threadExecutor: Executor, protected var mainThread: MainThread, protected val compositeDisposable: CompositeDisposable) : BaseContractMvpPresenter<V> {
-    private var mvpView: V? = null
+
+    protected var mvpView: V? = null
+
     @Inject
     protected lateinit var resources: Resources
 
@@ -25,11 +27,4 @@ abstract class BasePresenter<V : BaseContractMvpView> protected constructor(prot
         // when activity is destroyed
         compositeDisposable.clear()
     }
-
-    protected fun isViewConnected(): Boolean {
-        return getMvpView() != null
-    }
-
-    protected fun getMvpView(): V? = mvpView
-
 }

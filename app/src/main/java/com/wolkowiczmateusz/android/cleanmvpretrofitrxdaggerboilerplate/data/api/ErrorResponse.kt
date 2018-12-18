@@ -2,5 +2,5 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.ap
 
 data class ErrorResponse(
         var code: Int = 0,
-    var error: String? = null
+        var error: String? = null
 )

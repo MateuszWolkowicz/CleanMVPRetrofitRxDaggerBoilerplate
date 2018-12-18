@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "375297253355",
+    "firebase_url": "https://boilerplatecleankotlin.firebaseio.com",
+    "project_id": "boilerplatecleankotlin",
+    "storage_bucket": "boilerplatecleankotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375297253355:android:f5cbd5038c4258c2",
+        "android_client_info": {
+          "package_name": "com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375297253355-e071p7dnof5tqdj7vc9b2snageffghbu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate",
+            "certificate_hash": "dfd2d9200d48b48cb3b72ce98aa8eba3138a0ef6"
+          }
+        },
+        {
+          "client_id": "375297253355-n8ij7tcd3tfacrl5rbp5ki8sfk5vhdbq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnTGPRGh-5xf1elCjGWfOz6ZbrfTlOZzg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375297253355-n8ij7tcd3tfacrl5rbp5ki8sfk5vhdbq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

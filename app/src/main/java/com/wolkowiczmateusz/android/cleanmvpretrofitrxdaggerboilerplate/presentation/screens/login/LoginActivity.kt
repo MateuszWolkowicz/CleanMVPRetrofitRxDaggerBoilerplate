@@ -11,23 +11,31 @@ import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
 
+
+    override val layoutId: Int
+        get() = R.layout.activity_login
+
     @Inject
     lateinit var loginPresenter: LoginContract.Presenter<LoginContract.View>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        (application as App).appComponent
-                .inject(this)
-        loginPresenter.onAttach(this)
         setOnClickListeners()
     }
 
-
-    override fun onDestroy() {
-        loginPresenter.onDetach()
-        super.onDestroy()
+    override fun initializeDagger() {
+        val app = applicationContext as App
+        app.appComponent.inject(this)
     }
+
+    override fun attachPresenter() {
+        loginPresenter.onAttach(this)
+    }
+
+    override fun detachPresenter() {
+        loginPresenter.onDetach()
+    }
+
 
     private fun setOnClickListeners() {
         loginButton.setOnClickListener { loginPresenter.loginClick(emailEditText.text.toString(), passwordEditText.text.toString()) }

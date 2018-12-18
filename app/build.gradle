@@ -19,6 +19,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -74,7 +75,7 @@ dependencies {
     // Dependencies for local unit tests
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    testImplementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+//    testImplementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
     testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
     testImplementation "org.powermock:powermock-module-junit4:$rootProject.ext.powerMockito"
     testImplementation "org.powermock:powermock-api-mockito:$rootProject.ext.powerMockito"
@@ -100,6 +101,22 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
 
+    // Kotlin tests (standard set : JUnit5 , MockK, AssertJ)
+    // Kotlin Unit Tests on the JUnit5 Platform
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.junit5Version"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.junit5Version"
+
+    // Kotlin "Parameterized Tests" with JUnit5
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$rootProject.junit5Version"
+    testImplementation "io.mockk:mockk:$rootProject.ext.mockkVersion"
+    testImplementation "org.assertj:assertj-core:$rootProject.ext.assertJVersion"
+
+    // Kotlin other tests libraries
+    // androidTestImplementation "org.mockito:mockito-android:$rootProject.ext.mockitoAndroidVersion"
+    // testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$rootProject.kotlin_version"
+    // testImplementation "com.nhaarman:mockito-kotlin:$rootProject.ext.mockitoKotlinVersion"
+    // testImplementation "org.robolectric:robolectric:$rootProject.ext.robolectricVersion"
+
     // Crash reporting
     implementation "com.crashlytics.sdk.android:crashlytics:$rootProject.ext.crashlyticsVersion"
 
@@ -113,7 +130,7 @@ dependencies {
     // Optional, if you use support library fragments:
     debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$rootProject.ext.leakCanaryVersion"
 
-    // Others
+    // Other libraries
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"

@@ -18,12 +18,9 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
     @Inject
     lateinit var tryToLoginUseCase: TryToLoginUseCase
 
-    private val emailMatcherWrapper: EmailMatcherWrapper = EmailMatcherWrapper()
+    var emailMatcherWrapper: EmailMatcherWrapper = EmailMatcherWrapper()
 
     override fun loginClick(email: String, password: String) {
-        if (email == null || password == null) {
-            throw IllegalArgumentException("Email or Password can't be null")
-        }
         var hasErrors = false
         val emailError: String?
         val passwordError: String?
@@ -52,31 +49,29 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
         if (!hasErrors) {
             tryLogin(email, password)
         }
-        if (isViewConnected()) {
-            getMvpView()?.showErrors(emailError, passwordError)
-        }
+        mvpView?.showErrors(emailError, passwordError)
     }
 
     override fun registerClick() {
-        getMvpView()?.showRegister()
+        mvpView?.showRegister()
     }
 
     private fun emailNotValid(email: String): Boolean {
         return !emailMatcherWrapper.isEmailValid(email)
     }
 
-    private fun tryLogin(username: String, password: String) {
+    fun tryLogin(username: String, password: String) {
         compositeDisposable.add(
                 tryToLoginUseCase.runUseCase(username, password)
                         .subscribeOn(threadExecutor.scheduler())
                         .observeOn(mainThread.scheduler())
                         .doOnSubscribe { v ->
-                            getMvpView()?.disableLoginButton(true)
-                            getMvpView()?.showProgressDialog(resources.getString(R.string.please_wait), true, true)
+                            mvpView?.disableLoginButton(true)
+                            mvpView?.showProgressDialog(resources.getString(R.string.please_wait), true, true)
                         }
                         .doOnEach { v ->
-                            getMvpView()?.hideProgressDialog()
-                            getMvpView()?.disableLoginButton(false)
+                            mvpView?.hideProgressDialog()
+                            mvpView?.disableLoginButton(false)
                         }
                         .subscribeWith(LoginObserver())
         )
@@ -85,15 +80,11 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
     private inner class LoginObserver : DisposableObserver<User>() {
 
         override fun onNext(msg: User) {
-            if (isViewConnected()) {
-                getMvpView()?.login()
-            }
+            mvpView?.login()
         }
 
         override fun onError(throwable: Throwable) {
-            if (isViewConnected()) {
-                getMvpView()?.showError(customExceptions.getException(throwable))
-            }
+            mvpView?.showError(customExceptions.getException(throwable))
         }
 
         override fun onComplete() {}
