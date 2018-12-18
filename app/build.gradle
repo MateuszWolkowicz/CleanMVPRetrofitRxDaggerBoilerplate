@@ -67,10 +67,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJava2Version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxJava2AndroidVersion"
 
-    // Java boilerplate code helper
-    compileOnly "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
-    kapt "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
-
     // Graphic/animation/etc.
     implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.spinKitVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"

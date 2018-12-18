@@ -54,7 +54,6 @@ ext {
     rxJava2AndroidVersion = '2.0.2'
     rxJava2Retrofit2Adapter = '1.0.0'
     squareUpRetrofit2Adapter = '2.0.2'
-    lombokVersion = '1.16.18'
     spinKitVersion = '1.1.0'
     crashlyticsVersion = '2.9.7'
     firebaseCoreVersion = '16.0.6'
