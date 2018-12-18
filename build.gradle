@@ -74,7 +74,6 @@ ext {
 
     // Kotlin tests
     junit5Version = '5.3.1'
-//    mockkVersion = '1.8.7'
     mockkVersion = '1.8.13.kotlin13'
     assertJVersion = '3.8.0'
     // Kotlin other tests libraries
