@@ -30,6 +30,9 @@ android {
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 kapt {
@@ -66,7 +69,7 @@ dependencies {
 
     // Java boilerplate code helper
     compileOnly "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
-    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
+    kapt "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
 
     // Graphic/animation/etc.
     implementation "com.github.ybq:Android-SpinKit:$rootProject.ext.spinKitVersion"
