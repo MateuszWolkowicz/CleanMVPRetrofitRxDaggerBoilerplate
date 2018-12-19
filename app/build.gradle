@@ -104,13 +104,14 @@ dependencies {
     // Kotlin Unit Tests on the JUnit5 Platform
     testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.junit5Version"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.junit5Version"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$rootProject.junit5Version"
 
     // Kotlin "Parameterized Tests" with JUnit5
     testImplementation "org.junit.jupiter:junit-jupiter-params:$rootProject.junit5Version"
-    testImplementation "io.mockk:mockk:$rootProject.ext.mockkVersion"
-    testImplementation "org.assertj:assertj-core:$rootProject.ext.assertJVersion"
 
     // Kotlin other tests libraries
+    testImplementation "io.mockk:mockk:$rootProject.ext.mockkVersion"
+    testImplementation "org.assertj:assertj-core:$rootProject.ext.assertJVersion"
     // androidTestImplementation "org.mockito:mockito-android:$rootProject.ext.mockitoAndroidVersion"
     // testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$rootProject.kotlin_version"
     // testImplementation "com.nhaarman:mockito-kotlin:$rootProject.ext.mockitoKotlinVersion"
@@ -141,3 +142,7 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 apply plugin: 'com.google.gms.google-services'
+
+//test {
+//    useJUnitPlatform()
+//}
