@@ -38,7 +38,10 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     }
 
     private fun setOnClickListeners() {
-        loginButton.setOnClickListener { tryLogin().also { this.hideKeyboard() } }
+        loginButton.setOnClickListener {
+            tryLogin()
+                    .also { this.hideKeyboard() }
+        }
         registerButton.setOnClickListener { loginPresenter.registerClick() }
     }
 
@@ -58,6 +61,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun showRegister() {}
 
     override fun login() {
-        startActivity(Intent(this, MainActivity::class.java)).also { finish() }
+        startActivity(Intent(this, MainActivity::class.java))
+                .also { finish() }
     }
 }
