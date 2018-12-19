@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.App
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.R
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base.BaseActivity
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.hideKeyboard
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
@@ -36,10 +37,13 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         loginPresenter.onDetach()
     }
 
-
     private fun setOnClickListeners() {
-        loginButton.setOnClickListener { loginPresenter.loginClick(emailEditText.text.toString(), passwordEditText.text.toString()) }
+        loginButton.setOnClickListener { tryLogin().also { this.hideKeyboard() } }
         registerButton.setOnClickListener { loginPresenter.registerClick() }
+    }
+
+    private fun tryLogin() {
+        loginPresenter.loginClick(emailEditText.text.toString(), passwordEditText.text.toString())
     }
 
     override fun disableLoginButton(state: Boolean) {
