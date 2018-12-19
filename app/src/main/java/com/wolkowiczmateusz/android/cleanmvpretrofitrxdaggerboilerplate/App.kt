@@ -17,12 +17,12 @@ open class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        if (LeakCanary.isInAnalyzerProcess(this)) {
+        when {
+            LeakCanary.isInAnalyzerProcess(this) -> return
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
-            return
+            else -> LeakCanary.install(this)
         }
-        LeakCanary.install(this)
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }

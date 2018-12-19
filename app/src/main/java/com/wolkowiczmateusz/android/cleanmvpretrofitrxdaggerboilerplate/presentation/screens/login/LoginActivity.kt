@@ -54,7 +54,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun showRegister() {}
 
     override fun login() {
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+        startActivity(Intent(this, MainActivity::class.java)).also { finish() }
     }
 }
