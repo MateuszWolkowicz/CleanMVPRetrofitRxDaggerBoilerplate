@@ -16,6 +16,7 @@ import io.mockk.impl.annotations.RelaxedMockK
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.TestScheduler
+import org.junit.Ignore
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
@@ -71,20 +72,20 @@ internal class LoginPresenterTest {
         verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
     }
     //MockK issue i think
-//    @Test
-//    fun `valid password and email will run useCase and show no errors`() {
-//        //given
-//        val email = "ok@ok.pl"
-//        val password = "123456"
-//        every { resources.getString(any()) } returns TestData.ERROR_MESSAGE
-//        every { emailMatcherWrapper.isEmailValid(any()) } returns true
-//        //when
-//        loginPresenter.loginClick(email, password)
-//        //then
-//        verify { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
-//        verify(exactly = 0) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
-//        verify(exactly = 1) { tryToLoginUseCase.runUseCase(any()) }
-//    }
+    @Ignore
+    fun `valid password and email will run useCase and show no errors`() {
+        //given
+        val email = "ok@ok.pl"
+        val password = "123456"
+        every { resources.getString(any()) } returns TestData.ERROR_MESSAGE
+        every { emailMatcherWrapper.isEmailValid(any()) } returns true
+        //when
+        loginPresenter.loginClick(email, password)
+        //then
+        verify { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
+        verify(exactly = 0) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
+        verify(exactly = 1) { tryToLoginUseCase.runUseCase(any()) }
+    }
 
     @Test
     fun `password valid and email empty won't run useCase and show error only for email`() {
