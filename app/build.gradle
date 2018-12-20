@@ -105,6 +105,7 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutinesVersion"
 
     // Kotlin tests (standard set : JUnit5 , MockK, AssertJ)
     // Kotlin Unit Tests on the JUnit5 Platform
