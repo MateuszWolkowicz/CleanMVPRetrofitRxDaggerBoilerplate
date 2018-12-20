@@ -47,7 +47,7 @@ internal class LoginPresenterTest {
 
     @BeforeEach
     fun setUp() {
-        loginPresenter = LoginPresenter<LoginContract.View>(threadExecutor, mainThread, compositeDisposable)
+        loginPresenter = LoginPresenter(threadExecutor, mainThread, compositeDisposable)
         MockKAnnotations.init(this)
         clearAllMocks()
         loginPresenter.onAttach(mvpView)

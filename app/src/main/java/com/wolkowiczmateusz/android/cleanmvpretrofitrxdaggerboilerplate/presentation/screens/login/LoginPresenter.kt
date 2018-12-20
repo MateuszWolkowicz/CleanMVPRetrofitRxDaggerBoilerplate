@@ -18,7 +18,7 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
     @Inject
     lateinit var tryToLoginUseCase: TryToLoginUseCase
 
-    var emailMatcherWrapper: EmailMatcherWrapper = EmailMatcherWrapper()
+    private var emailMatcherWrapper: EmailMatcherWrapper = EmailMatcherWrapper()
 
     override fun loginClick(email: String, password: String) {
         var hasErrors = false

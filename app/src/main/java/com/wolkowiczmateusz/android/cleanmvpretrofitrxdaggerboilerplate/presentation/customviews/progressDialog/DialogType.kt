@@ -2,7 +2,7 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 
 import android.content.Context
 
-class DialogType(var dialog: Dialog) {
+class DialogType(private var dialog: Dialog) {
 
     fun show(context: Context, msg: String) {
         dialog.showDialog(context, msg)

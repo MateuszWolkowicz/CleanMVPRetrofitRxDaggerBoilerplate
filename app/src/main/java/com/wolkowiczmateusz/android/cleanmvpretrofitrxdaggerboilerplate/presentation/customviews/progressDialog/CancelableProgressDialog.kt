@@ -5,7 +5,7 @@ import android.content.Context
 
 class CancelableProgressDialog : Dialog {
 
-    lateinit var dialog: ProgressDialog
+    private lateinit var dialog: ProgressDialog
 
     override fun showDialog(context: Context, msg: String) {
         dialog = ProgressDialog(context)

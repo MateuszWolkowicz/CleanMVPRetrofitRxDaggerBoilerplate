@@ -17,7 +17,7 @@ class TestApplication : App() {
             }
             return mockAppComponent
         }
-        set(value: AppComponent) {
+        set(value) {
             super.appComponent = value
         }
 

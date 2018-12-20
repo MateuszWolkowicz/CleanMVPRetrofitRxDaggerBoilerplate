@@ -9,7 +9,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 
 abstract class BaseFragment : Fragment(), BaseContractMvpView {
 
-    lateinit var dialog: DialogType
+    private lateinit var dialog: DialogType
 
     override fun hideProgressDialog() {
         dialog.dismiss()

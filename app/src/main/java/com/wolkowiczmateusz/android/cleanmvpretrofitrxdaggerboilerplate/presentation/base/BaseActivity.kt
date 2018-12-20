@@ -27,7 +27,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractMvpView {
         detachPresenter()
     }
 
-    lateinit var dialog: DialogType
+    private lateinit var dialog: DialogType
 
     override fun hideProgressDialog() {
         dialog.dismiss()
