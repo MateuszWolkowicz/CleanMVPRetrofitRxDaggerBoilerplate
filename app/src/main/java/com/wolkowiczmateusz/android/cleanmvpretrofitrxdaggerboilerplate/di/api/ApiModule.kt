@@ -21,12 +21,12 @@ class ApiModule {
 
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
-        val builder = Retrofit.Builder()
-        builder.baseUrl(BASE_URL)
-        builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        builder.addConverterFactory(GsonConverterFactory.create())
-        builder.client(client)
-        return builder.build()
+        return Retrofit.Builder().apply {
+            baseUrl(BASE_URL)
+            addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            addConverterFactory(GsonConverterFactory.create())
+            client(client)
+        }.build()
     }
 
     @Provides

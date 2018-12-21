@@ -1,7 +1,7 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.repository
 
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mapper.SortOrderEntityMapper
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mapper.UserEnitityMapper
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.mapper.UserEntityMapper
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model.SortOrderEntity
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.repository.datasource.OfflineDataStore
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.repository.datasource.OnlineDataStore
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class RepositoryImpl @Inject
 constructor(
-        private val userEnitityMapper: UserEnitityMapper,
+        private val userEntityMapper: UserEntityMapper,
         private val sortOrderEntityMapper: SortOrderEntityMapper,
         private val offlineDataStore: OfflineDataStore,
         private val onlineDataStore: OnlineDataStore
@@ -23,7 +23,7 @@ constructor(
 
     override val loginUser: Single<User>
         get() = Single.just(offlineDataStore.loginUser)
-                .map { userEnitityMapper.entityToDomain(it) }
+                .map { userEntityMapper.entityToDomain(it) }
 
     override val isUserLogin: Single<Boolean>
         get() = Single.defer { offlineDataStore.isUserLogin }
@@ -39,6 +39,6 @@ constructor(
     override fun tryLogin(vararg params: String): Observable<User> {
         return onlineDataStore.tryLogin(*params)
                 .doOnNext { offlineDataStore.saveUserToStorage(it) }
-                .map { userEnitityMapper.entityToDomain(it) }
+                .map { userEntityMapper.entityToDomain(it) }
     }
 }

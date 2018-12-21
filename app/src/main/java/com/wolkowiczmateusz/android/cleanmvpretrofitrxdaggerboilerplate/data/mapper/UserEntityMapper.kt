@@ -6,7 +6,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.m
 
 import javax.inject.Inject
 
-class UserEnitityMapper @Inject
+class UserEntityMapper @Inject
 constructor() {
 
     fun userResponseToEntity(userResponse: UserResponse?): UserEntity {
