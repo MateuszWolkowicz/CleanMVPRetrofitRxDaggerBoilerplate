@@ -2,8 +2,8 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.R
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.executor.MainThread
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.interactors.TryToLoginUseCase
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model.User
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.repository.Repository
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base.BasePresenter
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.threading.Executor
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.wrappers.EmailMatcherWrapper
@@ -15,8 +15,9 @@ class LoginPresenter<V : LoginContract.View> @Inject
 constructor(threadExecutor: Executor, mainThread: MainThread,
             compositeDisposable: CompositeDisposable) : BasePresenter<V>(threadExecutor, mainThread, compositeDisposable), LoginContract.Presenter<V> {
 
+
     @Inject
-    lateinit var tryToLoginUseCase: TryToLoginUseCase
+    lateinit var repository: Repository
 
     private var emailMatcherWrapper: EmailMatcherWrapper = EmailMatcherWrapper()
 
@@ -62,7 +63,7 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
 
     fun tryLogin(username: String, password: String) {
         compositeDisposable.add(
-                tryToLoginUseCase.runUseCase(username, password)
+                repository.tryLogin(username, password)
                         .subscribeOn(threadExecutor.scheduler())
                         .observeOn(mainThread.scheduler())
                         .doOnSubscribe { v ->

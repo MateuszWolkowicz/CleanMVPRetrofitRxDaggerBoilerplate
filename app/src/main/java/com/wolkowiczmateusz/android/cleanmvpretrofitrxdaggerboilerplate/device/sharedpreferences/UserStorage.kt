@@ -1,23 +1,20 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.device.sharedpreferences
 
 import android.content.SharedPreferences
-
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model.UserEntity
-
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model.User
 import io.reactivex.Completable
 import io.reactivex.Single
 
 class UserStorage(private val preferences: SharedPreferences) {
 
-    val user: UserEntity
+    val user: User
         get() {
-            val userEntity = UserEntity(preferences.getString(USER_ID, ""))
-            userEntity.sessionToken = preferences.getString(SESSION_TOKEN, "")
-            userEntity.username = preferences.getString(USERNAME, "")
-            userEntity.email = preferences.getString(EMAIL, "")
-            userEntity.firstName = preferences.getString(FIRST_NAME, "")
-            userEntity.lastName = preferences.getString(LAST_NAME, "")
-            return userEntity
+            return User(preferences.getString(USER_ID, "")
+                    , preferences.getString(SESSION_TOKEN, "")
+                    , preferences.getString(USERNAME, "")
+                    , preferences.getString(EMAIL, "")
+                    , preferences.getString(FIRST_NAME, "")
+                    , preferences.getString(LAST_NAME, ""))
         }
 
     val isUserLogin: Single<Boolean>
@@ -32,7 +29,7 @@ class UserStorage(private val preferences: SharedPreferences) {
     val token: String?
         get() = preferences.getString(SESSION_TOKEN, "")
 
-    fun saveUser(user: UserEntity) {
+    fun saveUser(user: User) {
         val editor = preferences.edit()
         editor.putString(SESSION_TOKEN, user.sessionToken)
         editor.putString(USERNAME, user.username)
@@ -51,7 +48,6 @@ class UserStorage(private val preferences: SharedPreferences) {
     }
 
     companion object {
-
         private const val SESSION_TOKEN = "sessionToken"
         private const val USERNAME = "username"
         private const val EMAIL = "email"

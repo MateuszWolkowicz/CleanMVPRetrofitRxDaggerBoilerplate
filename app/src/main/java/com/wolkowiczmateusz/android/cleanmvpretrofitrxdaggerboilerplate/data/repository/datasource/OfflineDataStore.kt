@@ -1,7 +1,7 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.repository.datasource
 
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model.UserEntity
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.device.sharedpreferences.UserStorage
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model.User
 import io.reactivex.Completable
 import io.reactivex.Single
 import javax.inject.Inject
@@ -9,7 +9,7 @@ import javax.inject.Inject
 class OfflineDataStore @Inject
 constructor(private val userStorage: UserStorage) {
 
-    val loginUser: UserEntity
+    val loginUser: User
         get() = userStorage.user
 
     val isUserLogin: Single<Boolean>
@@ -19,7 +19,7 @@ constructor(private val userStorage: UserStorage) {
         return userStorage.logout()
     }
 
-    fun saveUserToStorage(userEntity: UserEntity) {
-        userStorage.saveUser(userEntity)
+    fun saveUserToStorage(user: User) {
+        userStorage.saveUser(user)
     }
 }
