@@ -1,10 +1,17 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.api.response
 
 data class UserResponse(
-        var username: String? = null,
-        var objectId: String? = null,
-        var email: String? = null,
-        var firstName: String? = null,
-        var lastName: String? = null,
-        var sessionToken: String? = null
+//        var username: String? = null,
+//        var objectId: String? = null,
+//        var email: String? = null,
+//        var firstName: String? = null,
+//        var lastName: String? = null,
+//        var sessionToken: String? = null
+
+        val username: String,
+        val objectId: String,
+        val email: String,
+        val firstName: String,
+        val lastName: String,
+        val sessionToken: String
 )

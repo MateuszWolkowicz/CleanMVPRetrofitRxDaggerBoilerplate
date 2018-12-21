@@ -3,8 +3,8 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 import android.content.res.Resources
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.TestData
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.executor.MainThread
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.interactors.Impl.TryToLoginUseCaseImpl
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model.User
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.repository.Repository
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.exception.CustomExceptions
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.threading.Executor
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.wrappers.EmailMatcherWrapper
@@ -27,7 +27,7 @@ import org.junit.jupiter.api.TestInstance
 internal class LoginPresenterTest {
 
     @MockK
-    lateinit var tryToLoginUseCase: TryToLoginUseCaseImpl
+    lateinit var repository: Repository
     @RelaxedMockK
     lateinit var mvpView: LoginContract.View
     @RelaxedMockK
@@ -69,8 +69,9 @@ internal class LoginPresenterTest {
         //then
         verify { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
-        verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
+        verify { repository.tryLogin(any()) wasNot Called }
     }
+
     //MockK issue i think
     @Ignore
     fun `valid password and email will run useCase and show no errors`() {
@@ -84,7 +85,7 @@ internal class LoginPresenterTest {
         //then
         verify { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify(exactly = 0) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
-        verify(exactly = 1) { tryToLoginUseCase.runUseCase(any()) }
+        verify(exactly = 1) { repository.tryLogin(any()) }
     }
 
     @Test
@@ -98,7 +99,7 @@ internal class LoginPresenterTest {
         //then
         verify { mvpView.showErrors(TestData.ERROR_MESSAGE, null) }
         verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, null) }
-        verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
+        verify { repository.tryLogin(any()) wasNot Called }
     }
 
     @Test
@@ -107,11 +108,11 @@ internal class LoginPresenterTest {
         val email = "ok@ok.pl"
         val password = "123456"
         val user = User("1", "", "", "", "", "")
-        every { tryToLoginUseCase.runUseCase(email, password) } returns Observable.create { subscriber -> subscriber.onNext(user) }
+        every { repository.tryLogin(email, password) } returns Observable.create { subscriber -> subscriber.onNext(user) }
         //when
         loginPresenter.tryLogin(email, password)
         //then
-        verify(exactly = 1) { tryToLoginUseCase.runUseCase(email, password) }
+        verify(exactly = 1) { repository.tryLogin(email, password) }
         assertNotNull(mvpView)
         testScheduler.triggerActions()
         verify(exactly = 1) { mvpView.login() }

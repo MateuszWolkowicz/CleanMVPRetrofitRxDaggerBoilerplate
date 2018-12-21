@@ -1,11 +1,11 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model
 
-class User(val userId: String?,
-           var sessionToken: String,
-           var username: String,
-           var email: String,
-           var firstName: String,
-           var lastName: String) {
+class User(val userId: String,
+           val sessionToken: String,
+           val username: String,
+           val email: String,
+           val firstName: String,
+           val lastName: String) {
 
 
     val fullName: String
