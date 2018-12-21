@@ -66,11 +66,11 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
                 repository.tryLogin(username, password)
                         .subscribeOn(threadExecutor.scheduler())
                         .observeOn(mainThread.scheduler())
-                        .doOnSubscribe { v ->
+                        .doOnSubscribe {
                             mvpView?.disableLoginButton(true)
                             mvpView?.showProgressDialog(resources.getString(R.string.please_wait), true, true)
                         }
-                        .doOnEach { v ->
+                        .doOnEach {
                             mvpView?.hideProgressDialog()
                             mvpView?.disableLoginButton(false)
                         }
