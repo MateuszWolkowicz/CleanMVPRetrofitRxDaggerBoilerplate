@@ -14,7 +14,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
-class LoginActivityMVVM : BaseActivity() {
+class LoginActivity : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
