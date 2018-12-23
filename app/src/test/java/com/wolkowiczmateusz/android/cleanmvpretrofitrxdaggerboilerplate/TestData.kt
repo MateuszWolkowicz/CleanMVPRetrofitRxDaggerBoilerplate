@@ -12,15 +12,15 @@ object TestData {
     private val correctTestUserEntity: UserEntity
         get() = UserEntity("1", "token", "Mateusz",
                 "wolkowicz.mateusz@gmail.com", "Mateusz", "Wołkowicz")
-    private val correctTestUserResponse: UserResponse
-        get() {
-            val userResponse = UserResponse()
-            userResponse.username = "Mateusz"
-            userResponse.firstName = "Mateusz"
-            userResponse.lastName = "Wołkowicz"
-            userResponse.email = "wolkowicz.mateusz@gmail.com"
-            userResponse.objectId = "1"
-            userResponse.sessionToken = "token"
-            return userResponse
-        }
+
+    fun correctTestUserResponse(): UserResponse {
+        val userResponse = UserResponse()
+        userResponse.username = "Mateusz"
+        userResponse.firstName = "Mateusz"
+        userResponse.lastName = "Wołkowicz"
+        userResponse.email = "wolkowicz.mateusz@gmail.com"
+        userResponse.objectId = "1"
+        userResponse.sessionToken = "token"
+        return userResponse
+    }
 }
