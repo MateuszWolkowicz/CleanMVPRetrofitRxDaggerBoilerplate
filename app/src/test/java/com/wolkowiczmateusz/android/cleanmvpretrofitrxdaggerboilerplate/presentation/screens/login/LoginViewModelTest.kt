@@ -87,7 +87,6 @@ internal class LoginViewModelTest {
         verify(exactly = 1) { tryToLoginUseCase.runUseCase(any()) }
     }
 
-    @Test
     @Ignore
     fun `password valid and email empty won't run useCase and show error only for email`() {
         //given
@@ -102,7 +101,6 @@ internal class LoginViewModelTest {
         verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
     }
 
-    @Test
     @Ignore
     fun `repository response success - view valid login action`() {
         //given
