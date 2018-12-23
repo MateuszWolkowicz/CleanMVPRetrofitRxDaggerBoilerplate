@@ -1,4 +1,4 @@
-package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login
+package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.mvp
 
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.R
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.executor.MainThread

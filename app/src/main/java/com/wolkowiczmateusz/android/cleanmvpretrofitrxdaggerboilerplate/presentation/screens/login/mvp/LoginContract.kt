@@ -1,4 +1,4 @@
-package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login
+package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.mvp
 
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base.BaseContractMvpPresenter
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.base.BaseContractMvpView
@@ -13,7 +13,7 @@ interface LoginContract {
         fun login()
     }
 
-    interface Presenter<V : LoginContract.View> : BaseContractMvpPresenter<V> {
+    interface Presenter<V : View> : BaseContractMvpPresenter<V> {
 
         fun loginClick(email: String, password: String)
         fun registerClick()

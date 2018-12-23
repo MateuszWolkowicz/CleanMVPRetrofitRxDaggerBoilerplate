@@ -60,6 +60,7 @@ ext {
     firebasePerfVersion = '16.2.2'
     leakCanaryVersion = '1.6.1'
     fabricVersion = '1.26.1'
+    lifecycleVersion = '1.1.0'
 
     // Tests
     junitVersion = '4.12'

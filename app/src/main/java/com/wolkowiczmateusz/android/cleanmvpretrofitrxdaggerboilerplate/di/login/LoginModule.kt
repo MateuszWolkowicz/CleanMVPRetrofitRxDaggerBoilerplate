@@ -1,7 +1,7 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.login
 
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.LoginContract
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.LoginPresenter
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.mvp.LoginContract
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.mvp.LoginPresenter
 
 import dagger.Module
 import dagger.Provides

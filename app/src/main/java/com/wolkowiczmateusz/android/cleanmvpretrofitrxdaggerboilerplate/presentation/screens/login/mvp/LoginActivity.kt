@@ -1,4 +1,4 @@
-package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login
+package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.mvp
 
 import android.content.Intent
 import android.os.Bundle
