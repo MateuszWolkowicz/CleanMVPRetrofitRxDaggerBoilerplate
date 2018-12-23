@@ -79,7 +79,7 @@ class LoginViewModel
     private inner class LoginObserver : DisposableObserver<User>() {
 
         override fun onNext(msg: User) {
-            login.setSuccess()
+            login.setSuccess(true)
         }
 
         override fun onError(throwable: Throwable) {

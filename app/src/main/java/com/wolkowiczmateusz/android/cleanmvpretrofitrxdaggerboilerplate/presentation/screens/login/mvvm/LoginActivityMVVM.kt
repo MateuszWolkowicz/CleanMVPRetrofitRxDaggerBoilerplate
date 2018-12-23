@@ -48,9 +48,13 @@ class LoginActivityMVVM : BaseActivity() {
                 ResourceState.SUCCESS -> renderSuccess()
                 ResourceState.ERROR -> renderError()
             }
-            it.data?.let { response(it) }
+            it.data?.let { it -> showData(it) }
             it.message?.let { it -> showError(it) }
         }
+    }
+
+    private fun showData(it: Boolean) {
+        it.let { login() }
     }
 
     private fun renderError() {
