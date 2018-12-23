@@ -27,7 +27,7 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class LoginViewModelTest {
 
-
+    //todo: tests won't  because some problem in Android Studio ? "Test framework quit unexpectedly"
     @MockK
     lateinit var tryToLoginUseCase: TryToLoginUseCaseImpl
     @RelaxedMockK
