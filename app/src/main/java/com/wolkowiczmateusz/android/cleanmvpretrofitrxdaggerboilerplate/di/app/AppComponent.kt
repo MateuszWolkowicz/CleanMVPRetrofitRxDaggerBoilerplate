@@ -4,7 +4,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.api.A
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.threading.ThreadingModule
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.usecases.UseCasesModule
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.viewmodels.ViewModelFactoryModule
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.mvvm.LoginActivity
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.LoginActivity
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.main.MainActivity
 import dagger.Component
 import javax.inject.Singleton

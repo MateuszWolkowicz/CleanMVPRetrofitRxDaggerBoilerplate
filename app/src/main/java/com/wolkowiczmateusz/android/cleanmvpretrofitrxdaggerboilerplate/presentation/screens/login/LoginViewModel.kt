@@ -1,4 +1,4 @@
-package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login.mvvm
+package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login
 
 import android.arch.lifecycle.MutableLiveData
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.R

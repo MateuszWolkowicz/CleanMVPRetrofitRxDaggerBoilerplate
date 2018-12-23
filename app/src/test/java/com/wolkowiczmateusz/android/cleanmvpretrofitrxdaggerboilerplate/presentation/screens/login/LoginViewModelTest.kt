@@ -1,0 +1,3 @@
+package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.screens.login
+
+internal class LoginViewModelTest
