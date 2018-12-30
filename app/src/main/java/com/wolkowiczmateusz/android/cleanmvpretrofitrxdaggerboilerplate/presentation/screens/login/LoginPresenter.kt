@@ -13,7 +13,8 @@ import javax.inject.Inject
 
 class LoginPresenter<V : LoginContract.View> @Inject
 constructor(
-    threadExecutor: Executor, mainThread: MainThread,
+    threadExecutor: Executor,
+    mainThread: MainThread,
     compositeDisposable: CompositeDisposable
 ) : BasePresenter<V>(threadExecutor, mainThread, compositeDisposable), LoginContract.Presenter<V> {
 
@@ -96,10 +97,4 @@ constructor(
         override fun onComplete() {}
     }
 }
-
-
-
-
-
-
 

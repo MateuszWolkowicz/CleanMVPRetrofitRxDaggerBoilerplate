@@ -1,6 +1,5 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.model
 
-
 data class UserModel(
     val userId: String?,
     var sessionToken: String? = null,

@@ -19,4 +19,3 @@ constructor(
             .take(1)
     }
 }
-

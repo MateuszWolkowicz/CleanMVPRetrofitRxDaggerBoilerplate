@@ -12,5 +12,5 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [AppModule::class, LoginModule::class, MockCustomApiModule::class, MockUseCaseModule::class, ThreadingModule::class])
 interface MockAppComponent :
-    AppComponent//    MockRegisterSubComponent newMockRegisterSubComponent(RegisterModule registerModule);
+    AppComponent //    MockRegisterSubComponent newMockRegisterSubComponent(RegisterModule registerModule);
 //    void inject(LoginActivityTest loginActivityTest);

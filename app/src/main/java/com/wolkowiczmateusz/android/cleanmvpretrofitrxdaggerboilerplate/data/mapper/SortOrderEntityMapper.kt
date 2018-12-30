@@ -26,4 +26,3 @@ constructor() {
         return sortOrderEntity
     }
 }
-

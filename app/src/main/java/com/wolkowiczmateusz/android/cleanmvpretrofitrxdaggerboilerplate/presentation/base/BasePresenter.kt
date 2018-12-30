@@ -27,7 +27,7 @@ abstract class BasePresenter<V : BaseContractMvpView> protected constructor(
 
     override fun onDetach() {
         this.mvpView = null
-        //it is very important to follow the standard to clear Observables (other than RxBus)
+        // it is very important to follow the standard to clear Observables (other than RxBus)
         // when activity is destroyed
         compositeDisposable.clear()
     }

@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Module
 class MockCustomApiModule {
 
-    @Singleton //important ! Without it, it doesn't work
+    @Singleton // important ! Without it, it doesn't work
     @Provides
     fun provideCustomApi(retrofit: Retrofit): CustomApi {
         return mock(CustomApi::class.java)
