@@ -40,9 +40,6 @@ android {
 //        unitTests.returnDefaultValues = true
     }
 }
-kapt {
-    generateStubs = true
-}
 configurations {
     ktlint
 }

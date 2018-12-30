@@ -91,7 +91,7 @@ ext {
 
 detekt {
     toolVersion = "1.0.0-RC12"
-    input = files("src/main/kotlin")
+    input = files("src/main/java")
     config = files("default-detekt-config.yml")
     filters = ".*/resources/.*,.*/build/.*"
 }
