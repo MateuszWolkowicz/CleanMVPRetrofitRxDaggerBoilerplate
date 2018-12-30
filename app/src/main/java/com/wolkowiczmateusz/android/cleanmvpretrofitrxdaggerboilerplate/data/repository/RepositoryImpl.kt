@@ -32,10 +32,6 @@ constructor(
         return offlineDataStore.logout()
     }
 
-    private fun sortOrderEntity(sortOrder: SortOrder): SortOrderEntity {
-        return sortOrderEntityMapper.domainToEntity(sortOrder)!!
-    }
-
     override fun tryLogin(vararg params: String): Observable<User> {
         return onlineDataStore.tryLogin(*params)
             .doOnNext { offlineDataStore.saveUserToStorage(it) }

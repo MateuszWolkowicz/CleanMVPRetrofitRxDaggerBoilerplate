@@ -8,11 +8,4 @@ import javax.inject.Inject
 internal class SortOrderDataMapper @Inject
 constructor() {
 
-    fun modelToDomain(sortOrderModel: SortOrderModel): SortOrder? {
-        return when (sortOrderModel) {
-            SortOrderModel.TITLE -> SortOrder.TITLE
-            SortOrderModel.NO_OF_EPISODES -> SortOrder.NO_OF_EPISODES
-        }
-        return null
-    }
 }
