@@ -10,12 +10,14 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [
-    AppModule::class,
-    ApiModule::class,
-    UseCasesModule::class,
-    ThreadingModule::class,
-    ViewModelFactoryModule::class])
+@Component(
+    modules = [
+        AppModule::class,
+        ApiModule::class,
+        UseCasesModule::class,
+        ThreadingModule::class,
+        ViewModelFactoryModule::class]
+)
 interface AppComponent {
 
     fun inject(activity: MainActivity)

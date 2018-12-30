@@ -10,17 +10,19 @@ object TestData {
     val CORRECT_USER_RESPONSE = correctTestUserResponse()
 
     private val correctTestUserEntity: UserEntity
-        get() = UserEntity("1", "token", "Mateusz",
-                "wolkowicz.mateusz@gmail.com", "Mateusz", "Wołkowicz")
+        get() = UserEntity(
+            "1", "token", "Mateusz",
+            "wolkowicz.mateusz@gmail.com", "Mateusz", "Wołkowicz"
+        )
 
     private fun correctTestUserResponse(): UserResponse {
         return UserResponse(
-                username = "Mateusz",
-                firstName = "Mateusz",
-                lastName = "Wołkowicz",
-                email = "wolkowicz.mateusz@gmail.com",
-                objectId = "1",
-                sessionToken = "token"
+            username = "Mateusz",
+            firstName = "Mateusz",
+            lastName = "Wołkowicz",
+            email = "wolkowicz.mateusz@gmail.com",
+            objectId = "1",
+            sessionToken = "token"
         )
     }
 }

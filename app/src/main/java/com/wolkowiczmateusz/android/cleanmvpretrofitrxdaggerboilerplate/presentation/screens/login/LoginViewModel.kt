@@ -14,10 +14,11 @@ import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
 class LoginViewModel
-@Inject constructor(threadExecutor: Executor,
-                    mainThread: MainThread,
-                    compositeDisposable: CompositeDisposable)
-    : BaseViewModel(threadExecutor, mainThread, compositeDisposable) {
+@Inject constructor(
+    threadExecutor: Executor,
+    mainThread: MainThread,
+    compositeDisposable: CompositeDisposable
+) : BaseViewModel(threadExecutor, mainThread, compositeDisposable) {
 
     val login = MutableLiveData<Resource<Boolean>>()
     val errors = MutableLiveData<Errors>()
@@ -66,13 +67,13 @@ class LoginViewModel
 
     fun tryLogin(username: String, password: String) {
         compositeDisposable.add(
-                tryToLoginUseCase.runUseCase(username, password)
-                        .subscribeOn(threadExecutor.scheduler())
-                        .observeOn(mainThread.scheduler())
-                        .doOnSubscribe {
-                            login.setLoading()
-                        }
-                        .subscribeWith(LoginObserver())
+            tryToLoginUseCase.runUseCase(username, password)
+                .subscribeOn(threadExecutor.scheduler())
+                .observeOn(mainThread.scheduler())
+                .doOnSubscribe {
+                    login.setLoading()
+                }
+                .subscribeWith(LoginObserver())
         )
     }
 
@@ -88,5 +89,4 @@ class LoginViewModel
 
         override fun onComplete() {}
     }
-
 }

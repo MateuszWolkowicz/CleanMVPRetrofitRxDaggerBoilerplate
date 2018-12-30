@@ -65,7 +65,10 @@ internal class LoginViewModelTest {
         //when
         loginViewModel.loginClick(email, password)
         //then
-        assertEquals(Errors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE), loginViewModel.errors.postValue(Errors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE)))
+        assertEquals(
+            Errors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE),
+            loginViewModel.errors.postValue(Errors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE))
+        )
 //        verify { Errors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE), errors.postValue(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE)}
 //        verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
@@ -107,7 +110,12 @@ internal class LoginViewModelTest {
         val email = "ok@ok.pl"
         val password = "123456"
         val user = User("1", "", "", "", "", "")
-        every { tryToLoginUseCase.runUseCase(email, password) } returns Observable.create { subscriber -> subscriber.onNext(user) }
+        every {
+            tryToLoginUseCase.runUseCase(
+                email,
+                password
+            )
+        } returns Observable.create { subscriber -> subscriber.onNext(user) }
         //when
         loginViewModel.tryLogin(email, password)
         //then

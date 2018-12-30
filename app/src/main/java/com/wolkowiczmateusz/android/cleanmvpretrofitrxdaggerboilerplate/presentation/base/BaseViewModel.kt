@@ -8,7 +8,11 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-open class BaseViewModel protected constructor(protected var threadExecutor: Executor, protected var mainThread: MainThread, protected val compositeDisposable: CompositeDisposable) : ViewModel() {
+open class BaseViewModel protected constructor(
+    protected var threadExecutor: Executor,
+    protected var mainThread: MainThread,
+    protected val compositeDisposable: CompositeDisposable
+) : ViewModel() {
 
     @Inject
     protected lateinit var resources: Resources

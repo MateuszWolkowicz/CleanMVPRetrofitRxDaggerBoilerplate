@@ -35,7 +35,8 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun attachPresenter() {
-        loginViewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
+        loginViewModel =
+            ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
         loginViewModel.login.observe(this, Observer { loginState(it) })
         loginViewModel.errors.observe(this, Observer { showErrors(it) })
     }
@@ -78,7 +79,7 @@ class LoginActivity : BaseActivity() {
     private fun setOnClickListeners() {
         loginButton.setOnClickListener {
             tryLogin()
-                    .also { this.hideKeyboard() }
+                .also { this.hideKeyboard() }
         }
         registerButton.setOnClickListener { showRegister() }
     }
@@ -99,12 +100,10 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun showRegister() {
-
     }
 
     fun login() {
         startActivity(Intent(this, MainActivity::class.java))
-                .also { finish() }
+            .also { finish() }
     }
-
 }

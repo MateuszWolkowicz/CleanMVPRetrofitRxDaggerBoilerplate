@@ -17,11 +17,9 @@ class TestSchedulerProvider(private val testScheduler: TestScheduler) : MainThre
     }
 
     override fun post(runnable: Runnable) {
-
     }
 
     override fun execute(command: Runnable) {
-
     }
 }
 

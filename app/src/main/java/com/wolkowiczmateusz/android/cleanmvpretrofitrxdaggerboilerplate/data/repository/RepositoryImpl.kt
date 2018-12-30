@@ -15,15 +15,15 @@ import javax.inject.Inject
 
 class RepositoryImpl @Inject
 constructor(
-        private val userEntityMapper: UserEntityMapper,
-        private val sortOrderEntityMapper: SortOrderEntityMapper,
-        private val offlineDataStore: OfflineDataStore,
-        private val onlineDataStore: OnlineDataStore
+    private val userEntityMapper: UserEntityMapper,
+    private val sortOrderEntityMapper: SortOrderEntityMapper,
+    private val offlineDataStore: OfflineDataStore,
+    private val onlineDataStore: OnlineDataStore
 ) : Repository {
 
     override val loginUser: Single<User>
         get() = Single.just(offlineDataStore.loginUser)
-                .map { userEntityMapper.entityToDomain(it) }
+            .map { userEntityMapper.entityToDomain(it) }
 
     override val isUserLogin: Single<Boolean>
         get() = Single.defer { offlineDataStore.isUserLogin }
@@ -38,7 +38,7 @@ constructor(
 
     override fun tryLogin(vararg params: String): Observable<User> {
         return onlineDataStore.tryLogin(*params)
-                .doOnNext { offlineDataStore.saveUserToStorage(it) }
-                .map { userEntityMapper.entityToDomain(it) }
+            .doOnNext { offlineDataStore.saveUserToStorage(it) }
+            .map { userEntityMapper.entityToDomain(it) }
     }
 }

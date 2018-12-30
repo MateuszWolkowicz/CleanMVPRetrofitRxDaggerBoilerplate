@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
 apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: 'io.gitlab.arturbosch.detekt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -32,6 +33,10 @@ android {
     }
     lintOptions {
         abortOnError false
+        absolutePaths false
+        lintConfig file('lint.xml')
+        disable 'InvalidPackage'
+        disable 'OldTargetApi'
     }
     testOptions {
         unitTests.all {
@@ -40,7 +45,9 @@ android {
 //        unitTests.returnDefaultValues = true
     }
 }
-
+configurations {
+    ktlint
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -107,6 +114,9 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.ext.coroutinesVersion"
 
+    //Kotlin static code analysis
+    ktlint "com.github.shyiko:ktlint:$rootProject.ktlintVersion"
+
     // Kotlin tests (standard set : JUnit5 , MockK, AssertJ)
     // Kotlin Unit Tests on the JUnit5 Platform
     testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.junit5Version"
@@ -149,3 +159,17 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 apply plugin: 'com.google.gms.google-services'
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args "src/**/*.kt"
+}
+check.dependsOn ktlint
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args "-F", "src/**/*.kt"
+}

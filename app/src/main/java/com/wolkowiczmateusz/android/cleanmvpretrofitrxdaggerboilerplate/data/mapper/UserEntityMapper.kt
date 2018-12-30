@@ -14,24 +14,27 @@ constructor() {
             throw IllegalArgumentException("Cannot transform a null value")
         }
         return UserEntity(
-                userResponse.objectId,
-                userResponse.sessionToken,
-                userResponse.username,
-                userResponse.email,
-                userResponse.firstName,
-                userResponse.lastName)
+            userResponse.objectId,
+            userResponse.sessionToken,
+            userResponse.username,
+            userResponse.email,
+            userResponse.firstName,
+            userResponse.lastName
+        )
     }
 
     fun entityToDomain(userEntity: UserEntity?): User {
         if (userEntity == null) {
             throw IllegalArgumentException("Cannot transform a null value")
         }
-        return User(userEntity.userId,
-                userEntity.sessionToken!!,
-                userEntity.username!!,
-                userEntity.email!!,
-                userEntity.firstName!!,
-                userEntity.lastName!!)
+        return User(
+            userEntity.userId,
+            userEntity.sessionToken!!,
+            userEntity.username!!,
+            userEntity.email!!,
+            userEntity.firstName!!,
+            userEntity.lastName!!
+        )
     }
 
     fun domainToEntity(user: User?): UserEntity {
@@ -39,11 +42,12 @@ constructor() {
             throw IllegalArgumentException("Cannot transform a null value")
         }
         return UserEntity(
-                user.userId,
-                user.sessionToken,
-                user.username,
-                user.email,
-                user.firstName,
-                user.lastName)
+            user.userId,
+            user.sessionToken,
+            user.username,
+            user.email,
+            user.firstName,
+            user.lastName
+        )
     }
 }
