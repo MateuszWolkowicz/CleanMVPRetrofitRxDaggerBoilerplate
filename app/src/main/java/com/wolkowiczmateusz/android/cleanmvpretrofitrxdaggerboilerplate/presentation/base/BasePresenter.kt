@@ -7,7 +7,11 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-abstract class BasePresenter<V : BaseContractMvpView> protected constructor(protected var threadExecutor: Executor, protected var mainThread: MainThread, protected val compositeDisposable: CompositeDisposable) : BaseContractMvpPresenter<V> {
+abstract class BasePresenter<V : BaseContractMvpView> protected constructor(
+    protected var threadExecutor: Executor,
+    protected var mainThread: MainThread,
+    protected val compositeDisposable: CompositeDisposable
+) : BaseContractMvpPresenter<V> {
 
     protected var mvpView: V? = null
 

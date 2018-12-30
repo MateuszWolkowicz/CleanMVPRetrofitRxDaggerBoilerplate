@@ -21,7 +21,11 @@ abstract class BaseFragment : Fragment(), BaseContractMvpView {
         activity?.let { dialog.show(it, msg) }
     }
 
-    override fun showProgressDialog(msg: String, cancelable: Boolean, cancelableInTouchMode: Boolean) {
+    override fun showProgressDialog(
+        msg: String,
+        cancelable: Boolean,
+        cancelableInTouchMode: Boolean
+    ) {
         // Strategy Pattern
         dialog = if ((cancelable) || (cancelableInTouchMode)) {
             DialogType(CancelableProgressDialog())
@@ -34,6 +38,4 @@ abstract class BaseFragment : Fragment(), BaseContractMvpView {
     override fun showError(exception: String) {
         Toast.makeText(activity, exception, Toast.LENGTH_SHORT).show()
     }
-
-
 }

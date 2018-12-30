@@ -12,7 +12,6 @@ import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
 
-
     override val layoutId: Int
         get() = R.layout.activity_login
 
@@ -40,7 +39,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     private fun setOnClickListeners() {
         loginButton.setOnClickListener {
             tryLogin()
-                    .also { this.hideKeyboard() }
+                .also { this.hideKeyboard() }
         }
         registerButton.setOnClickListener { loginPresenter.registerClick() }
     }
@@ -62,6 +61,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun login() {
         startActivity(Intent(this, MainActivity::class.java))
-                .also { finish() }
+            .also { finish() }
     }
 }

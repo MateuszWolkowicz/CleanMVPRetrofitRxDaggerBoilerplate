@@ -12,13 +12,12 @@ class TestApplication : App() {
         get() {
             if (mockAppComponent == null) {
                 mockAppComponent = DaggerMockAppComponent.builder()
-                        .appModule(AppModule(this))
-                        .build()
+                    .appModule(AppModule(this))
+                    .build()
             }
             return mockAppComponent
         }
         set(value) {
             super.appComponent = value
         }
-
 }

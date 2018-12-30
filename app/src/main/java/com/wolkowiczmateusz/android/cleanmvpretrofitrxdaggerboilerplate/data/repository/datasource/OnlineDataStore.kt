@@ -8,13 +8,15 @@ import io.reactivex.annotations.NonNull
 import javax.inject.Inject
 
 class OnlineDataStore @Inject
-constructor(private val customApi: CustomApi,
-            private val userEntityMapper: UserEntityMapper) {
+constructor(
+    private val customApi: CustomApi,
+    private val userEntityMapper: UserEntityMapper
+) {
 
     fun tryLogin(@NonNull vararg params: String): Observable<UserEntity> {
         return customApi.getLogin(params[0], params[1])
-                .map { userEntityMapper.userResponseToEntity(it) }
-                .take(1)
+            .map { userEntityMapper.userResponseToEntity(it) }
+            .take(1)
     }
 }
 

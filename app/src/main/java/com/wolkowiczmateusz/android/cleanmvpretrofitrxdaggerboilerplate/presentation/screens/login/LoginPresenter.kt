@@ -12,8 +12,10 @@ import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
 class LoginPresenter<V : LoginContract.View> @Inject
-constructor(threadExecutor: Executor, mainThread: MainThread,
-            compositeDisposable: CompositeDisposable) : BasePresenter<V>(threadExecutor, mainThread, compositeDisposable), LoginContract.Presenter<V> {
+constructor(
+    threadExecutor: Executor, mainThread: MainThread,
+    compositeDisposable: CompositeDisposable
+) : BasePresenter<V>(threadExecutor, mainThread, compositeDisposable), LoginContract.Presenter<V> {
 
     @Inject
     lateinit var tryToLoginUseCase: TryToLoginUseCase
@@ -62,18 +64,22 @@ constructor(threadExecutor: Executor, mainThread: MainThread,
 
     fun tryLogin(username: String, password: String) {
         compositeDisposable.add(
-                tryToLoginUseCase.runUseCase(username, password)
-                        .subscribeOn(threadExecutor.scheduler())
-                        .observeOn(mainThread.scheduler())
-                        .doOnSubscribe { v ->
-                            mvpView?.disableLoginButton(true)
-                            mvpView?.showProgressDialog(resources.getString(R.string.please_wait), true, true)
-                        }
-                        .doOnEach { v ->
-                            mvpView?.hideProgressDialog()
-                            mvpView?.disableLoginButton(false)
-                        }
-                        .subscribeWith(LoginObserver())
+            tryToLoginUseCase.runUseCase(username, password)
+                .subscribeOn(threadExecutor.scheduler())
+                .observeOn(mainThread.scheduler())
+                .doOnSubscribe { v ->
+                    mvpView?.disableLoginButton(true)
+                    mvpView?.showProgressDialog(
+                        resources.getString(R.string.please_wait),
+                        true,
+                        true
+                    )
+                }
+                .doOnEach { v ->
+                    mvpView?.hideProgressDialog()
+                    mvpView?.disableLoginButton(false)
+                }
+                .subscribeWith(LoginObserver())
         )
     }
 

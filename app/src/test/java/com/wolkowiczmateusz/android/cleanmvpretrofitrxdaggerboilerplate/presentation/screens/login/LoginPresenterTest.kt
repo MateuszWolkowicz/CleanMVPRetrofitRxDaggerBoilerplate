@@ -71,6 +71,7 @@ internal class LoginPresenterTest {
         verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
     }
+
     //MockK issue i think
     @Ignore
     fun `valid password and email will run useCase and show no errors`() {
@@ -107,7 +108,12 @@ internal class LoginPresenterTest {
         val email = "ok@ok.pl"
         val password = "123456"
         val user = User("1", "", "", "", "", "")
-        every { tryToLoginUseCase.runUseCase(email, password) } returns Observable.create { subscriber -> subscriber.onNext(user) }
+        every {
+            tryToLoginUseCase.runUseCase(
+                email,
+                password
+            )
+        } returns Observable.create { subscriber -> subscriber.onNext(user) }
         //when
         loginPresenter.tryLogin(email, password)
         //then
