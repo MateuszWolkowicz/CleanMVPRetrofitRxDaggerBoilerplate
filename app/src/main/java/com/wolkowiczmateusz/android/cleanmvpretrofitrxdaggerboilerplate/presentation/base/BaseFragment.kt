@@ -3,9 +3,9 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 import android.support.v4.app.Fragment
 import android.widget.Toast
 
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressDialog.CancelableProgressDialog
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressDialog.DialogType
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressDialog.NonCancelableProgressDialog
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressdialog.CancelableProgressDialog
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressdialog.DialogType
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.customviews.progressdialog.NonCancelableProgressDialog
 
 abstract class BaseFragment : Fragment(), BaseContractMvpView {
 

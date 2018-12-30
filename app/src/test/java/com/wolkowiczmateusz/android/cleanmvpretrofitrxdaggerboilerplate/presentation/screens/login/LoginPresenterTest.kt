@@ -3,7 +3,7 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 import android.content.res.Resources
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.TestData
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.executor.MainThread
-import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.interactors.Impl.TryToLoginUseCaseImpl
+import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.interactors.impl.TryToLoginUseCaseImpl
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.domain.model.User
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.exception.CustomExceptions
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.threading.Executor
