@@ -18,11 +18,12 @@ object ThreadExecutor : Executor {
     init {
         val keepAlive = KEEP_ALIVE_TIME.toLong()
         threadPoolExecutor = ThreadPoolExecutor(
-                CORE_POOL_SIZE,
-                MAX_POOL_SIZE,
-                keepAlive,
-                TIME_UNIT,
-                WORK_QUEUE)
+            CORE_POOL_SIZE,
+            MAX_POOL_SIZE,
+            keepAlive,
+            TIME_UNIT,
+            WORK_QUEUE
+        )
     }
 
     override fun execute(command: Runnable) {
@@ -32,5 +33,4 @@ object ThreadExecutor : Executor {
     override fun scheduler(): Scheduler {
         return Schedulers.from(this)
     }
-
 }

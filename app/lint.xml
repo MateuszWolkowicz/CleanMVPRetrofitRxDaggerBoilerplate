@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- Changes the severity of these to "error" for getting to a warning-free build -->
+    <issue id="UnusedResources" severity="error">
+        <ignore path="**/google-services/**" />
+        <ignore path="build.gradle" />
+    </issue>
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <!-- Change the severity of hardcoded strings to "error" -->
+    <issue id="HardcodedText" severity="error" />
+</lint>

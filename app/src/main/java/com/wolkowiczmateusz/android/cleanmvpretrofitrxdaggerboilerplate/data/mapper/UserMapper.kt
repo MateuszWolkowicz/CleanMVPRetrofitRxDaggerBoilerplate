@@ -11,12 +11,12 @@ class UserMapper @Inject constructor() {
 
     fun userResponseToUser(userResponse: UserResponse): User {
         return User(
-                userResponse.objectId,
-                userResponse.sessionToken,
-                userResponse.username,
-                userResponse.email,
-                userResponse.firstName,
-                userResponse.lastName
+            userResponse.objectId,
+            userResponse.sessionToken,
+            userResponse.username,
+            userResponse.email,
+            userResponse.firstName,
+            userResponse.lastName
         )
     }
 }

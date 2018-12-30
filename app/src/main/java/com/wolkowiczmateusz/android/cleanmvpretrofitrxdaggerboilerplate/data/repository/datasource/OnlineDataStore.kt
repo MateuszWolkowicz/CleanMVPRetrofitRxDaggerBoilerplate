@@ -13,8 +13,8 @@ constructor(private val customApi: CustomApi) {
 
     fun tryLogin(@NonNull vararg params: String): Observable<User> {
         return customApi.getLogin(params[0], params[1])
-                .map { userMapper.userResponseToUser(it) }
-                .take(1)
+            .map { userMapper.userResponseToUser(it) }
+            .take(1)
     }
 }
 

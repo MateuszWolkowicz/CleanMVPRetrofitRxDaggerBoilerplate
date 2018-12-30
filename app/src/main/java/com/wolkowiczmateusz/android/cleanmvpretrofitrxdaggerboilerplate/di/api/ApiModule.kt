@@ -33,17 +33,17 @@ class ApiModule {
     @Provides
     fun provideClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
-                .connectTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
-                .addNetworkInterceptor { chain ->
-                    val request = chain.request()
-                    val newRequest = request.newBuilder()
-                            .addHeader("X-Parse-Application-Id", "kxYGXED4dFfmdM3rC5rwzADdd0tHd8ZCcvZaqy28")
-                            .addHeader("X-Parse-REST-API-Key", "oNKhx7oB9RsoJ9XHby7ZKxiLcCxzrVrZNExf19SU")
-                            .addHeader("X-Parse-Revocable-Session", "1")
-                            .build()
-                    chain.proceed(newRequest)
-                }
-                .addNetworkInterceptor(loggingInterceptor).build()
+            .connectTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
+            .addNetworkInterceptor { chain ->
+                val request = chain.request()
+                val newRequest = request.newBuilder()
+                    .addHeader("X-Parse-Application-Id", "kxYGXED4dFfmdM3rC5rwzADdd0tHd8ZCcvZaqy28")
+                    .addHeader("X-Parse-REST-API-Key", "oNKhx7oB9RsoJ9XHby7ZKxiLcCxzrVrZNExf19SU")
+                    .addHeader("X-Parse-Revocable-Session", "1")
+                    .build()
+                chain.proceed(newRequest)
+            }
+            .addNetworkInterceptor(loggingInterceptor).build()
     }
 
     @Provides

@@ -28,9 +28,7 @@ open class App : Application() {
         }
         Fabric.with(this, Crashlytics())
         appComponent = DaggerAppComponent.builder()
-                .appModule(AppModule(this))
-                .build()
+            .appModule(AppModule(this))
+            .build()
     }
-
-
 }

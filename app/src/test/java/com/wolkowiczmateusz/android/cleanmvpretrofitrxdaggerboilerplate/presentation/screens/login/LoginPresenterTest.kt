@@ -108,7 +108,12 @@ internal class LoginPresenterTest {
         val email = "ok@ok.pl"
         val password = "123456"
         val user = User("1", "", "", "", "", "")
-        every { repository.tryLogin(email, password) } returns Observable.create { subscriber -> subscriber.onNext(user) }
+        every {
+            repository.tryLogin(
+                email,
+                password
+            )
+        } returns Observable.create { subscriber -> subscriber.onNext(user) }
         //when
         loginPresenter.tryLogin(email, password)
         //then

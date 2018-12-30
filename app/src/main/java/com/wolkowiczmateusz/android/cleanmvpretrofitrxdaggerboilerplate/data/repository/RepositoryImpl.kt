@@ -11,8 +11,8 @@ import javax.inject.Inject
 
 class RepositoryImpl @Inject
 constructor(
-        private val offlineDataStore: OfflineDataStore,
-        private val onlineDataStore: OnlineDataStore
+    private val offlineDataStore: OfflineDataStore,
+    private val onlineDataStore: OnlineDataStore
 ) : Repository {
 
     override val loginUser: Single<User>
@@ -27,6 +27,6 @@ constructor(
 
     override fun tryLogin(vararg params: String): Observable<User> {
         return onlineDataStore.tryLogin(*params)
-                .doOnNext { offlineDataStore.saveUserToStorage(it) }
+            .doOnNext { offlineDataStore.saveUserToStorage(it) }
     }
 }

@@ -9,12 +9,14 @@ class UserStorage(private val preferences: SharedPreferences) {
 
     val user: User
         get() {
-            return User(preferences.getString(USER_ID, "")
-                    , preferences.getString(SESSION_TOKEN, "")
-                    , preferences.getString(USERNAME, "")
-                    , preferences.getString(EMAIL, "")
-                    , preferences.getString(FIRST_NAME, "")
-                    , preferences.getString(LAST_NAME, ""))
+            return User(
+                preferences.getString(USER_ID, "")
+                , preferences.getString(SESSION_TOKEN, "")
+                , preferences.getString(USERNAME, "")
+                , preferences.getString(EMAIL, "")
+                , preferences.getString(FIRST_NAME, "")
+                , preferences.getString(LAST_NAME, "")
+            )
         }
 
     val isUserLogin: Single<Boolean>

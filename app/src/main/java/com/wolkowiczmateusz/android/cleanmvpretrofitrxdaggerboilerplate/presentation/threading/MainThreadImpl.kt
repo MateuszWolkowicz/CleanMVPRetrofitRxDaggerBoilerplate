@@ -18,5 +18,4 @@ object MainThreadImpl : MainThread {
     override fun post(runnable: Runnable) {
         handler.post(runnable)
     }
-
 }

@@ -6,5 +6,4 @@ interface BaseContractMvpView {
     fun showProgressDialog(msg: String)
     fun showProgressDialog(msg: String, cancelable: Boolean, cancelableInTouchMode: Boolean)
     fun showError(exception: String)
-
 }

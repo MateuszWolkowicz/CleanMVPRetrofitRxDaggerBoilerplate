@@ -39,7 +39,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractMvpView {
         dialog.show(this, msg)
     }
 
-    override fun showProgressDialog(msg: String, cancelable: Boolean, cancelableInTouchMode: Boolean) {
+    override fun showProgressDialog(
+        msg: String,
+        cancelable: Boolean,
+        cancelableInTouchMode: Boolean
+    ) {
         // Strategy Pattern
         dialog = if ((cancelable) || (cancelableInTouchMode)) {
             DialogType(CancelableProgressDialog())
@@ -52,5 +56,4 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractMvpView {
     override fun showError(exception: String) {
         Toast.makeText(this, exception, Toast.LENGTH_SHORT).show()
     }
-
 }

@@ -38,6 +38,5 @@ class CustomExceptions
         } catch (e: Exception) {
             e.message.toString()
         }
-
     }
 }

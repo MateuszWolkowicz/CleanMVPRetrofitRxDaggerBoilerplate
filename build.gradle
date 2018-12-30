@@ -21,6 +21,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "io.gitlab.arturbosch.detekt" version "1.0.0-RC12"
+}
+
 allprojects {
     repositories {
         google()
@@ -74,6 +78,7 @@ ext {
 
     // Kotlin
     coroutinesVersion = '1.0.1'
+    ktlintVersion = '0.29.0'
 
     // Kotlin tests
     junit5Version = '5.3.1'
@@ -87,3 +92,9 @@ ext {
 
 }
 
+detekt {
+    toolVersion = "1.0.0-RC12"
+    input = files("src/main/kotlin")
+    config = files("default-detekt-config.yml")
+    filters = ".*/resources/.*,.*/build/.*"
+}

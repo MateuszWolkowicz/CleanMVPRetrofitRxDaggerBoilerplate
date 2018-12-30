@@ -17,10 +17,8 @@ class TrampolineSchedulerProvider : MainThread, Executor {
     }
 
     override fun post(runnable: Runnable) {
-
     }
 
     override fun execute(command: Runnable) {
-
     }
 }
