@@ -9,7 +9,6 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.threading.Executor
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.wrappers.EmailMatcherWrapper
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.rxjavatest.TestSchedulerProvider
-import io.mockk.*
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
@@ -60,29 +59,29 @@ internal class LoginPresenterTest {
 
     @Test
     fun `password and email empty won't run useCase and show errors for email and password`() {
-        //given
+        // given
         val email = ""
         val password = ""
         every { resources.getString(any()) } returns TestData.ERROR_MESSAGE
-        //when
+        // when
         loginPresenter.loginClick(email, password)
-        //then
+        // then
         verify { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
     }
 
-    //MockK issue i think
+    // MockK issue i think
     @Ignore
     fun `valid password and email will run useCase and show no errors`() {
-        //given
+        // given
         val email = "ok@ok.pl"
         val password = "123456"
         every { resources.getString(any()) } returns TestData.ERROR_MESSAGE
         every { emailMatcherWrapper.isEmailValid(any()) } returns true
-        //when
+        // when
         loginPresenter.loginClick(email, password)
-        //then
+        // then
         verify { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify(exactly = 0) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify(exactly = 1) { tryToLoginUseCase.runUseCase(any()) }
@@ -90,13 +89,13 @@ internal class LoginPresenterTest {
 
     @Test
     fun `password valid and email empty won't run useCase and show error only for email`() {
-        //given
+        // given
         val email = ""
         val password = "123456"
         every { resources.getString(any()) } returns TestData.ERROR_MESSAGE
-        //when
+        // when
         loginPresenter.loginClick(email, password)
-        //then
+        // then
         verify { mvpView.showErrors(TestData.ERROR_MESSAGE, null) }
         verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, null) }
         verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
@@ -104,7 +103,7 @@ internal class LoginPresenterTest {
 
     @Test
     fun `repository response success - view valid login action`() {
-        //given
+        // given
         val email = "ok@ok.pl"
         val password = "123456"
         val user = User("1", "", "", "", "", "")
@@ -114,9 +113,9 @@ internal class LoginPresenterTest {
                 password
             )
         } returns Observable.create { subscriber -> subscriber.onNext(user) }
-        //when
+        // when
         loginPresenter.tryLogin(email, password)
-        //then
+        // then
         verify(exactly = 1) { tryToLoginUseCase.runUseCase(email, password) }
         assertNotNull(mvpView)
         testScheduler.triggerActions()
