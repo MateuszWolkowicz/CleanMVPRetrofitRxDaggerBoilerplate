@@ -9,9 +9,14 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.threading.Executor
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presentation.wrappers.EmailMatcherWrapper
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.rxjavatest.TestSchedulerProvider
+import io.mockk.Called
+import io.mockk.MockKAnnotations
+import io.mockk.clearAllMocks
+import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
+import io.mockk.verify
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.TestScheduler
@@ -19,8 +24,6 @@ import org.junit.Ignore
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class LoginPresenterTest {
