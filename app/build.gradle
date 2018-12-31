@@ -14,7 +14,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "com.example.android.cleanmvpretrofitrxdaggerboilerplate.TestApplicationRunner"
+        testInstrumentationRunner "com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.TestApplicationRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
