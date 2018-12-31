@@ -1,9 +1,7 @@
 package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.device.sharedpreferences
 
 import android.content.SharedPreferences
-
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.data.model.UserEntity
-
 import io.reactivex.Completable
 import io.reactivex.Single
 
