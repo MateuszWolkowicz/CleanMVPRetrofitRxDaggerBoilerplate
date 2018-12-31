@@ -47,7 +47,8 @@
                     android:drawableStart="@drawable/ic_email_selector"
                     android:hint="@string/e_mail"
                     android:autofillHints="user_email"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    tools:targetApi="o" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -65,7 +66,8 @@
                     android:drawableStart="@drawable/ic_password_selector"
                     android:hint="@string/password"
                     android:importantForAutofill="no"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    tools:targetApi="o" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
