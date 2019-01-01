@@ -6,7 +6,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.presenta
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 
-/**
+/*
  * Created by MateuszW on 2018-06-25.
  */
 

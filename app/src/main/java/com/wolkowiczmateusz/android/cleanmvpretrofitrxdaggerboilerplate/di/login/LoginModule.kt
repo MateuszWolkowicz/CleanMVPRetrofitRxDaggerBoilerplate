@@ -10,8 +10,8 @@ import dagger.Provides
 class LoginModule {
 
     @Provides
-    internal fun provideLoginPresenter(presenter: LoginPresenter<LoginContract.View>)
-        : LoginContract.Presenter<LoginContract.View> {
+    internal fun provideLoginPresenter(presenter: LoginPresenter<LoginContract.View>):
+        LoginContract.Presenter<LoginContract.View> {
         return presenter
     }
 }
