@@ -70,7 +70,7 @@ constructor(
             tryToLoginUseCase.runUseCase(username, password)
                 .subscribeOn(threadExecutor.scheduler())
                 .observeOn(mainThread.scheduler())
-                .doOnSubscribe { _ ->
+                .doOnSubscribe {
                     mvpView?.disableLoginButton(true)
                     mvpView?.showProgressDialog(
                         resources.getString(R.string.please_wait),
@@ -78,7 +78,7 @@ constructor(
                         true
                     )
                 }
-                .doOnEach { _ ->
+                .doOnEach {
                     mvpView?.hideProgressDialog()
                     mvpView?.disableLoginButton(false)
                 }

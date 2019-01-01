@@ -6,7 +6,7 @@ import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.di.compo
 
 class TestApplication : App() {
 
-    lateinit var mockAppComponent: MockAppComponent
+    private lateinit var mockAppComponent: MockAppComponent
 
     override var appComponent: AppComponent
         get() {
