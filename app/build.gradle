@@ -33,7 +33,6 @@ android {
         exclude 'META-INF/rxjava.properties'
     }
     lintOptions {
-//        abortOnError false
         lintConfig file('lint.xml')
     }
     testOptions {
@@ -56,6 +55,8 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintlayoutVersion"
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-media-compat:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
 
     // DI
     implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
