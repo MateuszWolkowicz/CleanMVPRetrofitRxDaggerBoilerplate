@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.TestApplicationRunner"
         vectorDrawables.useSupportLibrary = true
     }
+
     buildTypes {
         release {
             minifyEnabled true
