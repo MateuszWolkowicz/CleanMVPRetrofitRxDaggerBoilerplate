@@ -5,6 +5,7 @@ import com.jakewharton.retrofit2.adapter.rxjava2.HttpException
 import com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.R
 import okhttp3.ResponseBody
 import org.json.JSONObject
+import timber.log.Timber
 import java.io.IOException
 import java.net.SocketTimeoutException
 import javax.inject.Inject
@@ -26,6 +27,7 @@ class CustomExceptions
         }
     }
 
+    @Suppress("TooGenericExceptionCaught")
     private fun getRetrofitErrorMessage(responseBody: ResponseBody): String {
         return try {
             var error = responseBody.string()
@@ -33,6 +35,7 @@ class CustomExceptions
                 val jsonObject = JSONObject(error)
                 error = jsonObject.getString("error")
             } catch (e: Exception) {
+                Timber.e("Error of Custom Retrofit Error")
             }
             error
         } catch (e: Exception) {

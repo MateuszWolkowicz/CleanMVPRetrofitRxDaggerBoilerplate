@@ -10,6 +10,6 @@ class TryToLoginUseCaseImpl @Inject
 constructor(private val repository: Repository) : TryToLoginUseCase {
 
     override fun runUseCase(vararg params: String): Observable<User> {
-        return repository.tryLogin(*params)
+        return repository.tryLogin(params[0], params[1])
     }
 }
