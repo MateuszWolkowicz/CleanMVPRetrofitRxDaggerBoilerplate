@@ -33,7 +33,7 @@ android {
         exclude 'META-INF/rxjava.properties'
     }
     lintOptions {
-        abortOnError false
+//        abortOnError false
         lintConfig file('lint.xml')
     }
     testOptions {
