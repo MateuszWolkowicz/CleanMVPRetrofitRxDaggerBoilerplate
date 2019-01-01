@@ -18,7 +18,7 @@ constructor(
     compositeDisposable: CompositeDisposable
 ) : BasePresenter<V>(threadExecutor, mainThread, compositeDisposable), LoginContract.Presenter<V> {
 
-    val minimumNumberOfPasswordChar = 6
+    private val minimumNumberOfPasswordChar = 6
 
     @Inject
     lateinit var tryToLoginUseCase: TryToLoginUseCase

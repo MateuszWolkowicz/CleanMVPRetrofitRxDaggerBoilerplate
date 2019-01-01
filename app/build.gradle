@@ -37,7 +37,7 @@ android {
         absolutePaths false
         lintConfig file('lint.xml')
         disable 'InvalidPackage'
-        disable 'OldTargetApi'
+//        disable 'OldTargetApi'
     }
     testOptions {
         unitTests.all {
@@ -107,7 +107,7 @@ dependencies {
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.ext.coroutinesVersion"
 
@@ -151,9 +151,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
     implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJava2Retrofit2Adapter"
     implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.squareUpRetrofit2Adapter"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+
 }
 repositories {
     mavenCentral()
