@@ -30,14 +30,14 @@ class UserStorage(private val preferences: SharedPreferences) {
     val token: String?
         get() = preferences.getString(SESSION_TOKEN, "")
 
-    fun saveUser(user: UserEntity) {
+    fun saveUser(userEntity: UserEntity) {
         val editor = preferences.edit()
-        editor.putString(SESSION_TOKEN, user.sessionToken)
-        editor.putString(USERNAME, user.username)
-        editor.putString(EMAIL, user.email)
-        editor.putString(FIRST_NAME, user.firstName)
-        editor.putString(LAST_NAME, user.lastName)
-        editor.putString(USER_ID, user.userId)
+        editor.putString(SESSION_TOKEN, userEntity.sessionToken)
+        editor.putString(USERNAME, userEntity.username)
+        editor.putString(EMAIL, userEntity.email)
+        editor.putString(FIRST_NAME, userEntity.firstName)
+        editor.putString(LAST_NAME, userEntity.lastName)
+        editor.putString(USER_ID, userEntity.userId)
         editor.apply()
     }
 
@@ -49,7 +49,6 @@ class UserStorage(private val preferences: SharedPreferences) {
     }
 
     companion object {
-
         private const val SESSION_TOKEN = "sessionToken"
         private const val USERNAME = "username"
         private const val EMAIL = "email"
