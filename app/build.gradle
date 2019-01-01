@@ -34,10 +34,7 @@ android {
     }
     lintOptions {
         abortOnError false
-        absolutePaths false
         lintConfig file('lint.xml')
-        disable 'InvalidPackage'
-//        disable 'OldTargetApi'
     }
     testOptions {
         unitTests.all {
