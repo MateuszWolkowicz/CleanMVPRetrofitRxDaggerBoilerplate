@@ -11,10 +11,7 @@ import java.net.SocketTimeoutException
 import javax.inject.Inject
 
 class CustomExceptions
-@Inject constructor(resources: Resources) {
-
-    @Inject
-    lateinit var resources: Resources
+@Inject constructor(val resources: Resources) {
 
     fun getException(throwable: Throwable): String {
         return if (throwable is HttpException) {

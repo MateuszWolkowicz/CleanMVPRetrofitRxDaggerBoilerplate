@@ -3,6 +3,7 @@ package com.wolkowiczmateusz.android.cleanmvpretrofitrxdaggerboilerplate.present
 import android.app.ProgressDialog
 import android.content.Context
 
+@Suppress("DEPRECATION")
 class CancelableProgressDialog : Dialog {
 
     private lateinit var dialog: ProgressDialog
