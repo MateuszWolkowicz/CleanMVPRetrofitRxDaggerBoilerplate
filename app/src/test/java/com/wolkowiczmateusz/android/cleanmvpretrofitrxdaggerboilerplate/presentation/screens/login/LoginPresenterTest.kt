@@ -72,8 +72,7 @@ internal class LoginPresenterTest {
         loginPresenter.loginClick(email, password)
         // then
         verify { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
-//        verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
-        verify(exactly = 2) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
+        verify(exactly = 1) { mvpView.showErrors(TestData.ERROR_MESSAGE, TestData.ERROR_MESSAGE) }
         verify { tryToLoginUseCase.runUseCase(any()) wasNot Called }
     }
 
