@@ -1,2 +1,2 @@
-[![CircleCI](https://circleci.com/gh/MateuszWolkowicz/CleanMVPRetrofitRxDaggerBoilerplate/tree/Kotlin.svg?style=svg)](https://circleci.com/gh/MateuszWolkowicz/CleanMVPRetrofitRxDaggerBoilerplate/tree/Kotlin)
+[![CircleCI](https://circleci.com/gh/MateuszWolkowicz/CleanMVPRetrofitRxDaggerBoilerplate/tree/Kotlin-Clean-MVP.svg?style=svg)](https://circleci.com/gh/MateuszWolkowicz/CleanMVPRetrofitRxDaggerBoilerplate/tree/Kotlin-Clean-MVP)
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.11-blue.svg)](http://kotlinlang.org/)
