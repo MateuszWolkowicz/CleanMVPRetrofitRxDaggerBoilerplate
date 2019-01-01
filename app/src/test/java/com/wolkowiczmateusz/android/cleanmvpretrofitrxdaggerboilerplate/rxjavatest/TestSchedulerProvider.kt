@@ -22,4 +22,3 @@ class TestSchedulerProvider(private val testScheduler: TestScheduler) : MainThre
     override fun execute(command: Runnable) {
     }
 }
-

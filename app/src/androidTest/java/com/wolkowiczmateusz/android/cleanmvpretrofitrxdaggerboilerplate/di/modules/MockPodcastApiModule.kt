@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
-class MockCustomApiModule {
+class MockPodcastApiModule {
 
     @Singleton // important ! Without it, it doesn't work
     @Provides

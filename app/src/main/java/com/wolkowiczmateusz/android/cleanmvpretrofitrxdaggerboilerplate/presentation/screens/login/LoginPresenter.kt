@@ -18,6 +18,8 @@ constructor(
     compositeDisposable: CompositeDisposable
 ) : BasePresenter<V>(threadExecutor, mainThread, compositeDisposable), LoginContract.Presenter<V> {
 
+    val minimumNumberOfPasswordChar = 6
+
     @Inject
     lateinit var tryToLoginUseCase: TryToLoginUseCase
 
@@ -43,7 +45,7 @@ constructor(
                 passwordError = resources.getString(R.string.this_field_cant_be_empty)
                 hasErrors = true
             }
-            password.length < 6 -> {
+            password.length < minimumNumberOfPasswordChar -> {
                 passwordError = resources.getString(R.string.password_too_short)
                 hasErrors = true
             }
@@ -97,4 +99,3 @@ constructor(
         override fun onComplete() {}
     }
 }
-
