@@ -11,9 +11,10 @@ class TestApplication : App() {
     override var appComponent: AppComponent
         get() {
             if (mockAppComponent == null) {
+                @Suppress("Annotator")
                 mockAppComponent = DaggerMockAppComponent.builder()
-                    .appModule(AppModule(this))
-                    .build()
+                        .appModule(AppModule(this))
+                        .build()
             }
             return mockAppComponent
         }
